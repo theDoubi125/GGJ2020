@@ -19,7 +19,9 @@ public class MovementController : MonoBehaviour
     {
         input.x = Input.GetAxis("Horizontal");
         input.y = Input.GetAxis("Vertical");
-        rigidbody.AddForce(new Vector3(input.x, 0, input.y) * movementForce);        
+        Vector3 inputDirection = new Vector3(input.x, 0, input.y);
+        rigidbody.AddForce(inputDirection * movementForce);
+        // Quaternion.LookRotation()
         
     }
 }
