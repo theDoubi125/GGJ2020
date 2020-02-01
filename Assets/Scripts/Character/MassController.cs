@@ -17,7 +17,7 @@ public class MassController : MonoBehaviour
         SetMassConfig(defaultConfig);
     }
 
-    void SetMassConfig(MassConfig massConfig)
+    public void SetMassConfig(MassConfig massConfig)
     {
         rigidbody.drag = massConfig.drag;
         rigidbody.angularDrag = massConfig.angularDrag;
