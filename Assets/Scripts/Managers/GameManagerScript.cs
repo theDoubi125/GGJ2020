@@ -159,6 +159,8 @@ public class GameManagerScript : MonoBehaviour
 
     IEnumerator LeavingShip()
     {
+        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipLeaving);
+
         //freeze le timer
         var initialYDoorPos = entryDoor.transform.position.y;
 
