@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-//using DG.Tweening;
+using DG.Tweening;
 using TMPro;
 
 
 public class GameManagerScript : MonoBehaviour
 {
+    public static GameManagerScript instance = null;
+
+   
+
     public enum GameState
     {
         Waiting,
@@ -27,6 +31,8 @@ public class GameManagerScript : MonoBehaviour
     public GameObject prefabSpaceship;
     public Transform shipSpawnPos;
     public Transform shipRepairPos;
+    public GameObject entryDoor;
+    public MovementController player;
 
     [Header("Events")]
     public UnityEvent leavingEvent;
@@ -38,13 +44,18 @@ public class GameManagerScript : MonoBehaviour
     private float repairTimer;
     private float leavingTimer;
     private GameObject currentShip;
-    private Ship currentShipStat;
+    private Ship currentShipScript;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        //DOTween.Init();
+        DOTween.Init();
+
+        if(instance == null)
+        {
+            instance = this;
+        }
 
         waitTimer = 0.0f;
         currentState = GameState.Waiting;
@@ -113,19 +124,6 @@ public class GameManagerScript : MonoBehaviour
 
     }
 
-    IEnumerator InitGame()
-    {
-
-        //TEMPO TIME (  10 SEC BEFORE THE FIRST SHIP ARRIVE )
-        // yield return new WaitForSeconds(initialWaitTime);
-
-        //MAKE IT MOVE TO THE SPAWN POSITION
-        // ArrivingShip();
-
-        yield return new WaitForSeconds(5);
-        //LeavingShip();
-    }
-
 
     IEnumerator ArrivingShip()
     {
@@ -133,33 +131,37 @@ public class GameManagerScript : MonoBehaviour
         repairTimer = 0.0f;
 
         currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.Euler(0,90,0));
-        currentShipStat = currentShip.GetComponent<Ship>();
-        yield return true;
-        //Sequence shipArrivingSeq = DOTween.Sequence();
-        //shipArrivingSeq.Append(currentShip.transform.DOMoveX(0, 1))
-        //.Append(currentShip.transform.DOMoveY(1, 1));
-        //yield return shipArrivingSeq.WaitForCompletion();
-        //shipIsArrived = true;
+        currentShipScript = currentShip.GetComponent<Ship>();
+       // player.currentShip = currentShipScript;
+
+        var doorTween = entryDoor.transform.DOMoveY(15, 1);
+        yield return doorTween.WaitForCompletion();
+
+        Sequence shipArrivingSeq = DOTween.Sequence();
+        shipArrivingSeq.Append(currentShip.transform.DOMoveX(0, 1))
+        .Append(currentShip.transform.DOMoveY(2, 1));
+        yield return shipArrivingSeq.WaitForCompletion();
+        shipIsArrived = true;
     }
 
     IEnumerator LeavingShip()
     {
         //freeze le timer
 
-        //Sequence shipLeavingSeq = DOTween.Sequence();
-        //shipLeavingSeq.Append(currentShip.transform.DOMoveY(4, 1))
-        //    .Append(currentShip.transform.DOMoveX(50, 0.3f));
-        //yield return shipLeavingSeq.WaitForCompletion();
-        yield return true;
+        Sequence shipLeavingSeq = DOTween.Sequence();
+        shipLeavingSeq.Append(currentShip.transform.DOMoveY(4, 1))
+            .Append(currentShip.transform.DOMoveX(50, 0.3f));
+        yield return shipLeavingSeq.WaitForCompletion();
 
+        Destroy(currentShip);
     }
 
 
     void Repair()
     {
-        currentShipStat.brokenPart--;
+        currentShipScript.brokenPart--;
 
-        if (currentShipStat != null && currentShipStat.brokenPart == 0 )
+        if (currentShipScript != null && currentShipScript.brokenPart <= 0 )
         {
             repairFinish = true;
         }
@@ -169,11 +171,13 @@ public class GameManagerScript : MonoBehaviour
     void ResetSettings()
     {
         //random le nombre
-        currentShipStat.brokenPart = 5;
+        currentShipScript.brokenPart = 5;
         repairFinish = false;
         shipIsArrived = false;
         waitTimer = 0f;
 
     }
+
+   
 
 }

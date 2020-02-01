@@ -16,6 +16,7 @@ public class Ship : MonoBehaviour
     public List<PartType> partTypeToSetup;
     public int brokenPart;
     public List<Shippart> listOfParts;
+    public List<GameObject> physicalParts;
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +70,37 @@ public class Ship : MonoBehaviour
         if(brokenPart==0)
         {
             listOfParts[Random.Range(0, 5)].isBroken = true;
+        }
+
+        //SET THE GAMEOBJECT RESPECTIVLY
+        foreach(Transform childs in this.transform)
+        {
+            physicalParts.Add(childs.gameObject);
+        }
+    }
+
+    public void RemoveShipPart(PartType value)
+    {
+        Debug.Log("VALUE REMOVE : " + value);
+        switch (value)
+        {
+            case PartType.Body:
+                this.physicalParts[0].SetActive(false);
+                break;
+            case PartType.LeftWing:
+                this.physicalParts[1].SetActive(false);
+                break;
+            case PartType.RightWing:
+                this.physicalParts[2].SetActive(false);
+                break;
+            case PartType.Reactor:
+                this.physicalParts[3].SetActive(false);
+                break;
+            case PartType.Cockpit:
+                this.physicalParts[4].SetActive(false);
+                break;
+            default:
+                break;
         }
     }
 
