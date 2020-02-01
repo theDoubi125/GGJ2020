@@ -117,11 +117,6 @@ public class GameManagerScript : MonoBehaviour
             Repair();
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            
-        }
-
     }
 
 

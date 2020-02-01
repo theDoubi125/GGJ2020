@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: c2a62e028b829b24085e762b1bd12a18
+  - enabled: 1
+    path: Assets/Scenes/FinalCountdownScene.unity
+    guid: 0c836393be9f5f744b9d5e844f01bea9
   m_configObjects: {}
