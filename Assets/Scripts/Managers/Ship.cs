@@ -13,12 +13,12 @@ public class Ship : MonoBehaviour
         Body
     }
 
-    public List<PartType> partTypeToSetup;
     public int brokenPart;
+    public List<PartType> partTypeToSetup;
     public List<Shippart> listOfParts;
+    public List<GameObject> physicalParts;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         brokenPart = 0;
         partTypeToSetup.Add(PartType.Body);
@@ -27,7 +27,14 @@ public class Ship : MonoBehaviour
         partTypeToSetup.Add(PartType.Reactor);
         partTypeToSetup.Add(PartType.Cockpit);
 
-        GenerateBrokenSpaceship(5,3);
+        GenerateBrokenSpaceship(5, 3);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+      
+
 
         
     }
@@ -48,7 +55,7 @@ public class Ship : MonoBehaviour
             //remove the random
             var type = partTypeToSetup[i];
             //partTypeToSetup.RemoveAt(index);
-            Debug.Log("TYPE : " + type.ToString());
+            //Debug.Log("TYPE : " + type.ToString());
             if(brokenPart < maxBrokenPart)
             {
                 if (Random.Range(0, 2) == 1)
@@ -56,7 +63,7 @@ public class Ship : MonoBehaviour
                     isBroken = true;
                     brokenPart++;
                 }
-                Debug.Log("IS BROKEN  : " + isBroken.ToString());
+                //Debug.Log("IS BROKEN  : " + isBroken.ToString());
 
             }
 
@@ -69,6 +76,12 @@ public class Ship : MonoBehaviour
         if(brokenPart==0)
         {
             listOfParts[Random.Range(0, 5)].isBroken = true;
+        }
+
+        //SET THE GAMEOBJECT RESPECTIVLY
+        foreach(Transform childs in this.transform)
+        {
+            physicalParts.Add(childs.gameObject);
         }
     }
 

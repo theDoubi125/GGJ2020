@@ -10,18 +10,28 @@ public class Hand : MonoBehaviour
     public Grabbable grabbedObject;
     public Transform[] raycastSources;
     public Rigidbody grabJointTarget;
+    private Interactable smallInteractableInRange;
+
+    public ToolHandler toolHandler;
 
     void Update()
     {
         RaycastHit raycastHit;
         Interactable hoveredInteractable = null;
-        foreach(Transform raycastSource in raycastSources)
+        if(smallInteractableInRange != null)
         {
-            if(Physics.Raycast(raycastSource.position, raycastSource.forward, out raycastHit, grabRange, grabLayerMask))
+            hoveredInteractable = smallInteractableInRange;
+        }
+        else
+        {
+            foreach(Transform raycastSource in raycastSources)
             {
-                hoveredInteractable = raycastHit.collider.GetComponent<Interactable>();
-                if(hoveredInteractable != null)
-                    break;
+                if(Physics.Raycast(raycastSource.position, raycastSource.forward, out raycastHit, grabRange, grabLayerMask))
+                {
+                    hoveredInteractable = raycastHit.collider.GetComponent<Interactable>();
+                    if(hoveredInteractable != null)
+                        break;
+                }
             }
         }
 
@@ -52,7 +62,7 @@ public class Hand : MonoBehaviour
             {
                 if(objectInRange != null)
                 {
-                    objectInRange.OnInteractionBy(this);
+                    objectInRange.OnInteractionBy(this, toolHandler.usedToolType);
                 }
             }
             else
@@ -61,11 +71,40 @@ public class Hand : MonoBehaviour
                 grabbedObject = null;
             }
         }
+
+        if(Input.GetButtonDown("Drop"))
+        {
+            if(toolHandler.hasTool)
+            {
+                toolHandler.DropTool();
+            }
+            if(grabbedObject == null)
+            {
+
+            }
+        }
     }
 
     public void GrabObject(Grabbable grabbable)
     {
         grabbedObject = grabbable;
         grabbable.OnGrabbed(this);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Interactable interactable = other.GetComponent<Interactable>();
+        if(interactable != null && interactable.isSmall)
+        {
+            smallInteractableInRange = interactable;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Interactable interactable = other.GetComponent<Interactable>();
+        if(interactable != null && interactable == smallInteractableInRange)
+        {
+            smallInteractableInRange = null;
+        }
     }
 }
