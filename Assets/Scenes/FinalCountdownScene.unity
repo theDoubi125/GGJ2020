@@ -1934,6 +1934,11 @@ PrefabInstance:
       propertyPath: pilotAnim
       value: 
       objectReference: {fileID: 988753211}
+    - target: {fileID: 8807467575026312185, guid: 88f04be4cd5dea946a1463f298307cf0,
+        type: 3}
+      propertyPath: animatorUI
+      value: 
+      objectReference: {fileID: 988753213}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f04be4cd5dea946a1463f298307cf0, type: 3}
 --- !u!1 &705507993
