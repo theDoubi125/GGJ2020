@@ -35,6 +35,7 @@ public class GameManagerScript : MonoBehaviour
 
     [Header("UI")]
     public TextMeshProUGUI timerUI;
+    public TextMeshProUGUI brokenPartCount;
     public GameObject pilotAnim;
     public Animator animatorUI;
 
@@ -129,11 +130,13 @@ public class GameManagerScript : MonoBehaviour
 
         repairTimer = 0.0f;
 
-        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipArriving);
+        //SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipArriving);
 
         currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.Euler(0,90,0));
         currentShipScript = currentShip.GetComponent<Ship>();
-        // player.currentShip = currentShipScript;
+
+        brokenPartCount.text = currentShipScript.brokenPart.ToString();
+
         var initialYDoorPos = entryDoor.transform.position.y;
 
         var doorTween = entryDoor.transform.DOMoveY(15, 1);
