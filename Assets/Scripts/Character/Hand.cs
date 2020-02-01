@@ -8,11 +8,13 @@ public class Hand : MonoBehaviour
     public LayerMask grabLayerMask;
     public Interactable objectInRange;
     public Grabbable grabbedObject;
+    public Transform raycastSource;
+    public Rigidbody grabJointTarget;
 
     void Update()
     {
         RaycastHit raycastHit;
-        if(Physics.Raycast(transform.position, transform.forward, out raycastHit, grabRange, grabLayerMask))
+        if(Physics.Raycast(raycastSource.position, raycastSource.forward, out raycastHit, grabRange, grabLayerMask))
         {
             Interactable interactable = raycastHit.collider.GetComponent<Interactable>();
             if(objectInRange != interactable)

@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 818705816387625669}
   - component: {fileID: 8492447429789935132}
   - component: {fileID: 1297525816}
-  - component: {fileID: 1297525819}
   m_Layer: 0
   m_Name: Chariot
   m_TagString: Untagged
@@ -179,15 +178,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6cdb1556bc21e84f9f6cc49cea23e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1297525819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8058423933109785402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b27dbcd2412bdf14494053efef0a551a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  jointTarget: {fileID: 0}

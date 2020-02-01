@@ -7,7 +7,7 @@ public class HilightMaterialSwitcher: MonoBehaviour
 {
     public Material basicMaterial;
     public Material hilightedMaterial;
-    private Renderer renderer;
+    private new Renderer renderer;
 
     void Start()
     {

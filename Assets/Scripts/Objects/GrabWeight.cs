@@ -7,6 +7,7 @@ public class GrabWeight : MonoBehaviour
 {
     private Grabbable grabbable;
     public MassConfig massConfig;
+    private Hand grabbingHand;
 
     void Start()
     {
@@ -17,13 +18,14 @@ public class GrabWeight : MonoBehaviour
 
     private void OnGrabbed(Hand hand)
     {
+        grabbingHand = hand;
         MassController massController = hand.GetComponentInParent<MassController>();
         massController.SetMassConfig(massConfig);
     }
 
-    private void OnReleased(Hand hand)
+    private void OnReleased()
     {
-        MassController massController = hand.GetComponentInParent<MassController>();
+        MassController massController = grabbingHand.GetComponentInParent<MassController>();
         massController.SetMassConfig(massController.defaultConfig);
     }
 
