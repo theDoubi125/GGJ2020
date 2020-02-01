@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using DG.Tweening;
+//using DG.Tweening;
 using TMPro;
 
 
@@ -44,7 +44,7 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DOTween.Init();
+        //DOTween.Init();
 
         waitTimer = 0.0f;
         currentState = GameState.Waiting;
@@ -132,25 +132,25 @@ public class GameManagerScript : MonoBehaviour
 
         repairTimer = 0.0f;
 
-        currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.identity);
+        currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.Euler(0,90,0));
         currentShipStat = currentShip.GetComponent<Ship>();
-
-        Sequence shipArrivingSeq = DOTween.Sequence();
-        shipArrivingSeq.Append(currentShip.transform.DOMoveX(0, 1))
-        .Append(currentShip.transform.DOMoveY(1, 1));
-        yield return shipArrivingSeq.WaitForCompletion();
-        shipIsArrived = true;
+        yield return true;
+        //Sequence shipArrivingSeq = DOTween.Sequence();
+        //shipArrivingSeq.Append(currentShip.transform.DOMoveX(0, 1))
+        //.Append(currentShip.transform.DOMoveY(1, 1));
+        //yield return shipArrivingSeq.WaitForCompletion();
+        //shipIsArrived = true;
     }
 
     IEnumerator LeavingShip()
     {
         //freeze le timer
 
-        Sequence shipLeavingSeq = DOTween.Sequence();
-        shipLeavingSeq.Append(currentShip.transform.DOMoveY(4, 1))
-            .Append(currentShip.transform.DOMoveX(50, 0.3f));
-        yield return shipLeavingSeq.WaitForCompletion();
-
+        //Sequence shipLeavingSeq = DOTween.Sequence();
+        //shipLeavingSeq.Append(currentShip.transform.DOMoveY(4, 1))
+        //    .Append(currentShip.transform.DOMoveX(50, 0.3f));
+        //yield return shipLeavingSeq.WaitForCompletion();
+        yield return true;
 
     }
 
