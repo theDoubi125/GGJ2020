@@ -1,4 +1,4 @@
-﻿﻿using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,7 +31,8 @@ public class SoundManagerScript : MonoBehaviour
 
     public static SoundManagerScript instance = null;
 
-    private AudioSource musicSource;
+    public AudioSource musicSource;
+    public AudioSource sfxSource;
 
     bool muteSFX = false;
 
@@ -87,79 +88,76 @@ public class SoundManagerScript : MonoBehaviour
     void Start()
     {
         musicSource = GetComponent<AudioSource>();
-        PlayMusic();
+        StartCoroutine(DelayPlayMusic());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator DelayPlayMusic()
     {
-
+        yield return new WaitForSeconds(1.0f);
+        PlayMusic();
     }
 
     public void PlayOneShotSound(AudioClips clipType)
     {
-        if (!muteSFX)
+        AudioClip clip = null;
+        switch (clipType)
         {
-            AudioClip clip = null;
-            switch (clipType)
-            {
-                case AudioClips.DoorsOpen:
-                    clip = doorsOpen;
-                    break;
-                case AudioClips.DoorsClose:
-                    clip = doorsClose;
-                    break;
-                case AudioClips.ForkliftMoving:
-                    clip = forkliftMoving;
-                    break;
-                case AudioClips.ObjectFallsHeavy:
-                    clip = objectFallsHeavy[Random.Range(0, objectFallsHeavy.Count)];
-                    break;
-                case AudioClips.ObjectFallsLight:
-                    clip = objectFallsLight[Random.Range(0, objectFallsLight.Count)];
-                    break;
-                case AudioClips.ObjectPickUp:
-                    clip = objectPickUp;
-                    break;
-                case AudioClips.ObjectPutColor:
-                    clip = objectPutColor;
-                    break;
-                case AudioClips.ObjectPutWorkbench:
-                    clip = objectPutWorkbench;
-                    break;
-                case AudioClips.ObjectRepair:
-                    clip = objectRepair;
-                    break;
-                case AudioClips.ObjectThrow:
-                    clip = objectThrow[Random.Range(0, objectThrow.Count)];
-                    break;
-                case AudioClips.PlayerRolling:
-                    // TODO: loop ?
-                    clip = playerRolling;
-                    break;
-                case AudioClips.ShipArriving:
-                    clip = shipArriving;
-                    break;
-                case AudioClips.ShipConnectPiece:
-                    clip = shipConnectPiece;
-                    break;
-                case AudioClips.ShipCrashDoor:
-                    clip = shipCrashDoor;
-                    break;
-                case AudioClips.ShipLeaving:
-                    clip = shipLeaving;
-                    break;
-                case AudioClips.ShipWarning:
-                    clip = shipWarning[Random.Range(0, shipWarning.Count)];
-                    break;
-                case AudioClips.ToolBlowtorch:
-                    clip = toolBlowtorch;
-                    break;
-            }
-            if (clip != null)
-            {
-                musicSource.PlayOneShot(clip);
-            }
+            case AudioClips.DoorsOpen:
+                clip = doorsOpen;
+                break;
+            case AudioClips.DoorsClose:
+                clip = doorsClose;
+                break;
+            case AudioClips.ForkliftMoving:
+                clip = forkliftMoving;
+                break;
+            case AudioClips.ObjectFallsHeavy:
+                clip = objectFallsHeavy[Random.Range(0, objectFallsHeavy.Count)];
+                break;
+            case AudioClips.ObjectFallsLight:
+                clip = objectFallsLight[Random.Range(0, objectFallsLight.Count)];
+                break;
+            case AudioClips.ObjectPickUp:
+                clip = objectPickUp;
+                break;
+            case AudioClips.ObjectPutColor:
+                clip = objectPutColor;
+                break;
+            case AudioClips.ObjectPutWorkbench:
+                clip = objectPutWorkbench;
+                break;
+            case AudioClips.ObjectRepair:
+                clip = objectRepair;
+                break;
+            case AudioClips.ObjectThrow:
+                clip = objectThrow[Random.Range(0, objectThrow.Count)];
+                break;
+            case AudioClips.PlayerRolling:
+                // TODO: loop ?
+                clip = playerRolling;
+                break;
+            case AudioClips.ShipArriving:
+                clip = shipArriving;
+                break;
+            case AudioClips.ShipConnectPiece:
+                clip = shipConnectPiece;
+                break;
+            case AudioClips.ShipCrashDoor:
+                clip = shipCrashDoor;
+                break;
+            case AudioClips.ShipLeaving:
+                clip = shipLeaving;
+                break;
+            case AudioClips.ShipWarning:
+                clip = shipWarning[Random.Range(0, shipWarning.Count)];
+                break;
+            case AudioClips.ToolBlowtorch:
+                clip = toolBlowtorch;
+                break;
+        }
+        if (clip != null)
+        {
+            sfxSource.PlayOneShot(clip);
         }
     }
 
@@ -176,7 +174,7 @@ public class SoundManagerScript : MonoBehaviour
 
     public void MuteSFX()
     {
-        muteSFX = !muteSFX;
+        sfxSource.mute = !sfxSource.mute;
     }
 
 }

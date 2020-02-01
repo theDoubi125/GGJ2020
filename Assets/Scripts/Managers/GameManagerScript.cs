@@ -140,6 +140,8 @@ public class GameManagerScript : MonoBehaviour
         // player.currentShip = currentShipScript;
         var initialYDoorPos = entryDoor.transform.position.y;
 
+        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.DoorsOpen);
+
         var doorTween = entryDoor.transform.DOMoveY(15, 1);
         yield return doorTween.WaitForCompletion();
 
@@ -152,6 +154,8 @@ public class GameManagerScript : MonoBehaviour
         animatorUI.SetTrigger("Angry");
         //StartCoroutine(pilotAnimation());
 
+        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.DoorsClose);
+
         //polish anim
         entryDoor.transform.DOMoveY(initialYDoorPos, 1);
 
@@ -159,7 +163,7 @@ public class GameManagerScript : MonoBehaviour
 
     IEnumerator LeavingShip()
     {
-        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipLeaving);
+        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.DoorsOpen);
 
         //freeze le timer
         var initialYDoorPos = entryDoor.transform.position.y;
@@ -167,11 +171,14 @@ public class GameManagerScript : MonoBehaviour
         var doorTween = exitDoor.transform.DOMoveY(15, 1);
         yield return doorTween.WaitForCompletion();
 
+        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipLeaving);
+
         Sequence shipLeavingSeq = DOTween.Sequence();
         shipLeavingSeq.Append(currentShip.transform.DOMoveY(4, 1))
             .Append(currentShip.transform.DOMoveX(50, 0.3f));
         yield return shipLeavingSeq.WaitForCompletion();
 
+        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.DoorsClose);
         exitDoor.transform.DOMoveY(initialYDoorPos, 1);
 
         Destroy(currentShip);
