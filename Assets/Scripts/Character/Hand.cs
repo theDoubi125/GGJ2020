@@ -8,16 +8,26 @@ public class Hand : MonoBehaviour
     public LayerMask grabLayerMask;
     public Interactable objectInRange;
     public Grabbable grabbedObject;
-    public Transform raycastSource;
+    public Transform[] raycastSources;
     public Rigidbody grabJointTarget;
 
     void Update()
     {
         RaycastHit raycastHit;
-        if(Physics.Raycast(raycastSource.position, raycastSource.forward, out raycastHit, grabRange, grabLayerMask))
+        Interactable hoveredInteractable = null;
+        foreach(Transform raycastSource in raycastSources)
         {
-            Interactable interactable = raycastHit.collider.GetComponent<Interactable>();
-            if(objectInRange != interactable)
+            if(Physics.Raycast(raycastSource.position, raycastSource.forward, out raycastHit, grabRange, grabLayerMask))
+            {
+                hoveredInteractable = raycastHit.collider.GetComponent<Interactable>();
+                if(hoveredInteractable != null)
+                    break;
+            }
+        }
+
+        if(hoveredInteractable != null)
+        {
+            if(objectInRange != hoveredInteractable)
             {
                 if(objectInRange != null)
                 {
@@ -25,7 +35,7 @@ public class Hand : MonoBehaviour
                 }
                 else
                 {
-                    objectInRange = raycastHit.collider.GetComponent<Interactable>();
+                    objectInRange = hoveredInteractable;
                     objectInRange.SetHilight(true);
                 }
             }

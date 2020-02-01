@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Grabbable))]
-[RequireComponent(typeof(CarryJoint))]
 public class Carryable : MonoBehaviour
 {
     private Grabbable grabbable;
@@ -49,7 +48,7 @@ public class Carryable : MonoBehaviour
         if(inGrabAnimation)
         {
             carryAnimationTime += Time.deltaTime;
-            transform.position = attachedHand.transform.position + grabAnimationOffset + Vector3.up * carryAnimationTime / carryAnimationDuration;
+            transform.position = attachedHand.transform.position + grabAnimationOffset + Vector3.up * carryHeight * carryAnimationTime / carryAnimationDuration;
             if(carryAnimationTime > carryAnimationDuration)
             {
                 inGrabAnimation = false;
