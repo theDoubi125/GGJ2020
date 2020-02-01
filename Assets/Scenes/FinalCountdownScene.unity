@@ -1177,7 +1177,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh166926
+  m_Name: pb_Mesh-17148
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1427,7 +1427,7 @@ RectTransform:
   - {fileID: 1240091982}
   - {fileID: 988753212}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1934,6 +1934,11 @@ PrefabInstance:
       propertyPath: pilotAnim
       value: 
       objectReference: {fileID: 988753211}
+    - target: {fileID: 8807467575026312185, guid: 88f04be4cd5dea946a1463f298307cf0,
+        type: 3}
+      propertyPath: animatorUI
+      value: 
+      objectReference: {fileID: 988753213}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f04be4cd5dea946a1463f298307cf0, type: 3}
 --- !u!1 &705507993
@@ -2254,7 +2259,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &880816916
 GameObject:
@@ -3321,7 +3326,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1286143972
 GameObject:
@@ -3421,7 +3426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1588999856
 GameObject:
@@ -4475,7 +4480,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh167074
+  m_Name: pb_Mesh14828
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

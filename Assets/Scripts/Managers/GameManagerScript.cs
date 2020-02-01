@@ -32,13 +32,15 @@ public class GameManagerScript : MonoBehaviour
     public Transform shipSpawnPos;
     public Transform shipRepairPos;
     public GameObject entryDoor;
-    public MovementController player;
+    public GameObject exitDoor;
 
     [Header("Events")]
     public UnityEvent leavingEvent;
 
     [Header("UI")]
     public TextMeshProUGUI timerUI;
+    public GameObject pilotAnim;
+    public Animator animatorUI;
 
     private float waitTimer;
     private float repairTimer;
@@ -114,6 +116,7 @@ public class GameManagerScript : MonoBehaviour
    
         if (Input.GetKeyDown(KeyCode.R))
         {
+            animatorUI.SetTrigger("Happy");
             Repair();
         }
 
@@ -132,7 +135,8 @@ public class GameManagerScript : MonoBehaviour
 
         currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.Euler(0,90,0));
         currentShipScript = currentShip.GetComponent<Ship>();
-       // player.currentShip = currentShipScript;
+        // player.currentShip = currentShipScript;
+        var initialYDoorPos = entryDoor.transform.position.y;
 
         var doorTween = entryDoor.transform.DOMoveY(15, 1);
         yield return doorTween.WaitForCompletion();
@@ -141,21 +145,42 @@ public class GameManagerScript : MonoBehaviour
         shipArrivingSeq.Append(currentShip.transform.DOMoveX(0, 1))
         .Append(currentShip.transform.DOMoveY(2, 1));
         yield return shipArrivingSeq.WaitForCompletion();
+
         shipIsArrived = true;
+        animatorUI.SetTrigger("Angry");
+        //StartCoroutine(pilotAnimation());
+
+        //polish anim
+        entryDoor.transform.DOMoveY(initialYDoorPos, 1);
+
     }
 
     IEnumerator LeavingShip()
     {
         //freeze le timer
+        var initialYDoorPos = entryDoor.transform.position.y;
+
+        var doorTween = exitDoor.transform.DOMoveY(15, 1);
+        yield return doorTween.WaitForCompletion();
 
         Sequence shipLeavingSeq = DOTween.Sequence();
         shipLeavingSeq.Append(currentShip.transform.DOMoveY(4, 1))
             .Append(currentShip.transform.DOMoveX(50, 0.3f));
         yield return shipLeavingSeq.WaitForCompletion();
 
+        exitDoor.transform.DOMoveY(initialYDoorPos, 1);
+
         Destroy(currentShip);
     }
 
+    IEnumerator pilotAnimation()
+    {
+        pilotAnim.SetActive(true);
+
+        yield return new WaitForSeconds(3.0f);
+        pilotAnim.SetActive(false);
+        
+    }
 
     void Repair()
     {
