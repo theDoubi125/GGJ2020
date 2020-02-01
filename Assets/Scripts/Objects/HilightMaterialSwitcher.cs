@@ -7,12 +7,13 @@ public class HilightMaterialSwitcher: MonoBehaviour
 {
     public Material basicMaterial;
     public Material hilightedMaterial;
-    private new Renderer renderer;
+    public new Renderer renderer;
 
     void Start()
     {
         GetComponent<Interactable>().hilightChangedDelegate += OnHilightChanged;
-        renderer = GetComponent<Renderer>();
+        if(renderer == null)
+            renderer = GetComponent<Renderer>();
         
     }
 
