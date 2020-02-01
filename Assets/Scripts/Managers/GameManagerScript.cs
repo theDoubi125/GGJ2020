@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using DG.Tweening;
 using TMPro;
 
+
 public class GameManagerScript : MonoBehaviour
 {
     public enum GameState
@@ -45,18 +46,10 @@ public class GameManagerScript : MonoBehaviour
     {
         DOTween.Init();
 
-        //if (leavingEvent == null)
-        //{
-        //    leavingEvent = new UnityEvent();
-        //}
-
-        //leavingEvent.AddListener(LeavingShip);
-
         waitTimer = 0.0f;
         currentState = GameState.Waiting;
         timerUI.text = "PREPARE THE PIT !";
-        //StartCoroutine(InitGame());
-
+  
     }
 
     // Update is called once per frame
@@ -118,19 +111,16 @@ public class GameManagerScript : MonoBehaviour
             
         }
 
-
-
-
     }
 
     IEnumerator InitGame()
     {
 
         //TEMPO TIME (  10 SEC BEFORE THE FIRST SHIP ARRIVE )
-        yield return new WaitForSeconds(initialWaitTime);
+        // yield return new WaitForSeconds(initialWaitTime);
 
         //MAKE IT MOVE TO THE SPAWN POSITION
-        ArrivingShip();
+        // ArrivingShip();
 
         yield return new WaitForSeconds(5);
         //LeavingShip();
@@ -139,6 +129,7 @@ public class GameManagerScript : MonoBehaviour
 
     IEnumerator ArrivingShip()
     {
+
         repairTimer = 0.0f;
 
         currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.identity);
@@ -154,7 +145,6 @@ public class GameManagerScript : MonoBehaviour
     IEnumerator LeavingShip()
     {
         //freeze le timer
-        //repairFinish = true;
 
         Sequence shipLeavingSeq = DOTween.Sequence();
         shipLeavingSeq.Append(currentShip.transform.DOMoveY(4, 1))
@@ -182,6 +172,7 @@ public class GameManagerScript : MonoBehaviour
         currentShipStat.brokenPart = 5;
 
         waitTimer = 0f;
+
     }
 
 }
