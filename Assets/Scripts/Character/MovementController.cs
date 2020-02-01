@@ -23,6 +23,12 @@ public class MovementController : MonoBehaviour
         if(inputDirection.magnitude > 1)
             inputDirection = inputDirection.normalized;
         rigidbody.AddForce(inputDirection * movementForce);
-        rigidbody.AddTorque(Vector3.Cross(transform.forward, inputDirection.normalized) * turnSpeed);
+        if(Vector3.Dot(transform.forward, inputDirection) < 0)
+        {
+            rigidbody.AddTorque(Vector3.Cross(transform.forward, inputDirection.normalized).normalized * turnSpeed);
+
+        }
+        else 
+            rigidbody.AddTorque(Vector3.Cross(transform.forward, inputDirection.normalized) * turnSpeed);
     }
 }

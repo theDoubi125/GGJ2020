@@ -61,7 +61,6 @@ public class Carryable : MonoBehaviour
 
     private void OnGrabAnimationFinished()
     {
-        attachedArm.animationFinishedDelegate -= OnGrabAnimationFinished;
         //inGrabAnimation = false;
     }
 }
