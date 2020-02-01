@@ -100,7 +100,6 @@ public class GameManagerScript : MonoBehaviour
                 else
                 {
                     ResetSettings();
-                    waitTimer = 0f;
                     currentState = GameState.Waiting;
                 }
                 break;
@@ -179,7 +178,10 @@ public class GameManagerScript : MonoBehaviour
 
     void ResetSettings()
     {
+        //random le nombre
+        currentShipStat.brokenPart = 5;
 
+        waitTimer = 0f;
     }
 
 }
