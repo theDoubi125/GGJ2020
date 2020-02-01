@@ -36,8 +36,6 @@ public class Grabbable : MonoBehaviour
                 {
                     if(!conditionDelegate())
                     {
-                        if(startReleaseDelegate != null)
-                            startReleaseDelegate();
                         return;
                     }
                 }

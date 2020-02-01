@@ -15,6 +15,7 @@ public class Carryable : MonoBehaviour
     public float carryHeight = 1;
     public float carryAnimationDuration = 0.5f;
     private float carryAnimationTime = 0;
+    private FixedJoint fixedJoint;
 
     void Start()
     {
@@ -34,9 +35,8 @@ public class Carryable : MonoBehaviour
 
     private void OnStartRelease()
     {
-        Destroy(GetComponent<FixedJoint>());
-        //grabAnimationOffset = transform.position - attachedHand.transform.position;
-        inGrabAnimation = true;
+        Destroy(fixedJoint);
+        grabAnimationOffset = transform.position - attachedHand.transform.position;
     }
 
     private void OnReleased()
@@ -49,11 +49,12 @@ public class Carryable : MonoBehaviour
         if(inGrabAnimation)
         {
             carryAnimationTime += Time.deltaTime;
-            transform.position = attachedHand.transform.position + Vector3.up * carryAnimationTime / carryAnimationDuration;
+            transform.position = attachedHand.transform.position + grabAnimationOffset + Vector3.up * carryAnimationTime / carryAnimationDuration;
             if(carryAnimationTime > carryAnimationDuration)
             {
                 inGrabAnimation = false;
-                gameObject.AddComponent<FixedJoint>().connectedBody = attachedHand.grabJointTarget;
+                fixedJoint = gameObject.AddComponent<FixedJoint>();
+                fixedJoint.connectedBody = attachedHand.grabJointTarget;
             }
         }
     }
