@@ -14,9 +14,9 @@ public class DroppedTool : MonoBehaviour
         interactable.interactDelegate += OnInteraction;
     }
 
-    private void OnInteraction(Hand hand)
+    private void OnInteraction(Interactable interactable, Hand hand, Tool.ToolType toolType)
     {
-        if(!hand.toolHandler.hasTool)
+        if(toolType == Tool.ToolType.None)
         {
             hand.toolHandler.SetTool(inHandVersionPrefab);
             Destroy(gameObject);

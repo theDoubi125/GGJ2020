@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: -2706621010744914624}
   - component: {fileID: -4983350690362330049}
   - component: {fileID: 9199878829948099782}
+  - component: {fileID: -1928869828433691387}
+  - component: {fileID: -3037886805647325602}
   m_Layer: 0
   m_Name: Detached_LeftWing
   m_TagString: Untagged
@@ -113,6 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10656e1ed0675f4c9dbd161915a423d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neededTool: 0
+  isSmall: 0
 --- !u!114 &3306381747052854470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c460e8aece47e42be2078ac3a321f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  massConfig: {fileID: 0}
+  massConfig: {fileID: 11400000, guid: be34e39bedb995f47b0f825f7e9d006a, type: 2}
 --- !u!114 &-4983350690362330049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c95b115c8cc6e4448b0b5afb1c65bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carryHeight: 1
+  carryHeight: 3
   carryAnimationDuration: 0.5
 --- !u!54 &9199878829948099782
 Rigidbody:
@@ -183,3 +187,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-1928869828433691387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9208272001975309638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abbf3a83b88bc34398aebab5207d1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicMaterial: {fileID: 2100000, guid: 13ffc073001a88c4593d8dafe7aff69e, type: 2}
+  hilightedMaterial: {fileID: 2100000, guid: 4de9e923393b3df45942ad314b91e94e, type: 2}
+  renderer: {fileID: 0}
+--- !u!114 &-3037886805647325602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9208272001975309638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291078cff05689448b9522e175858a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 0

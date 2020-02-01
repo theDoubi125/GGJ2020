@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 7264311188673877673}
   - component: {fileID: 3395098036809891277}
   - component: {fileID: 7417224909055332584}
+  - component: {fileID: -8055704895438281505}
+  - component: {fileID: -1690380614545643567}
   m_Layer: 0
   m_Name: Detached_Reactor
   m_TagString: Untagged
@@ -115,6 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10656e1ed0675f4c9dbd161915a423d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neededTool: 0
+  isSmall: 0
 --- !u!114 &1619179265991497053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c95b115c8cc6e4448b0b5afb1c65bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carryHeight: 1
+  carryHeight: 3
   carryAnimationDuration: 0.5
 --- !u!114 &3395098036809891277
 MonoBehaviour:
@@ -168,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c460e8aece47e42be2078ac3a321f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  massConfig: {fileID: 0}
+  massConfig: {fileID: 11400000, guid: be34e39bedb995f47b0f825f7e9d006a, type: 2}
 --- !u!54 &7417224909055332584
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -185,3 +189,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8055704895438281505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724452574401399709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abbf3a83b88bc34398aebab5207d1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicMaterial: {fileID: 2100000, guid: 13ffc073001a88c4593d8dafe7aff69e, type: 2}
+  hilightedMaterial: {fileID: 2100000, guid: 4de9e923393b3df45942ad314b91e94e, type: 2}
+  renderer: {fileID: 0}
+--- !u!114 &-1690380614545643567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724452574401399709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291078cff05689448b9522e175858a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 0

@@ -116,7 +116,8 @@ public class GameManagerScript : MonoBehaviour
    
         if (Input.GetKeyDown(KeyCode.R))
         {
-            animatorUI.SetTrigger("Happy");
+            if(animatorUI != null)
+                animatorUI.SetTrigger("Happy");
             Repair();
         }
 
@@ -147,7 +148,8 @@ public class GameManagerScript : MonoBehaviour
         yield return shipArrivingSeq.WaitForCompletion();
 
         shipIsArrived = true;
-        animatorUI.SetTrigger("Angry");
+        if(animatorUI != null)
+            animatorUI.SetTrigger("Angry");
         //StartCoroutine(pilotAnimation());
 
         //polish anim

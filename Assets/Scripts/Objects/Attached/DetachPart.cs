@@ -13,12 +13,13 @@ public class DetachPart : MonoBehaviour
         interactable.interactDelegate += OnInteraction;
     }
 
-    private void OnInteraction(Hand hand)
+    private void OnInteraction(Interactable interactable, Hand hand, Tool.ToolType toolType)
     {
-       // Instantiate(toSpawn, transform.position, transform.rotation);
-        Instantiate(toSpawn, transform.position, transform.rotation);
-
-        gameObject.SetActive(false);
+        if(toolType == Tool.ToolType.Wrench)
+        {
+            Instantiate(toSpawn, transform.position, transform.rotation);
+            gameObject.SetActive(false);
+        }
     }
     
     void Update()
