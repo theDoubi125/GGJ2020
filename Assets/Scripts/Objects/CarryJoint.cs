@@ -1,12 +1,11 @@
-﻿using System.Collections;
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Grabbable))]
-public class GrabJoint : MonoBehaviour
+public class CarryJoint: MonoBehaviour
 {
-    public Rigidbody jointTarget;
-
     void Start()
     {
         GetComponent<Grabbable>().grabbedDelegate += OnGrabbed;

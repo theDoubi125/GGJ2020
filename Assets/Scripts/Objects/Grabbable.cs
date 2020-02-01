@@ -8,7 +8,12 @@ public class Grabbable : MonoBehaviour
 {
     private Interactable interactable;
     public Action<Hand> grabbedDelegate;
-    public Action<Hand> releasedDelegate;
+    public Action startReleaseDelegate;
+    public Action releasedDelegate;
+
+    public delegate bool CanReleaseDelegate();
+    public CanReleaseDelegate canReleaseDelegate;
+    private bool releaseStarted = false;
 
     void Start()
     {
@@ -21,19 +26,41 @@ public class Grabbable : MonoBehaviour
         hand.GrabObject(this);
     }
 
+    private void Update()
+    {
+        if(releaseStarted)
+        {
+            if(canReleaseDelegate != null)
+            {
+                foreach(CanReleaseDelegate conditionDelegate in canReleaseDelegate.GetInvocationList())
+                {
+                    if(!conditionDelegate())
+                    {
+                        return;
+                    }
+                }
+            }
+            releaseStarted = false;
+            if(releasedDelegate != null)
+                releasedDelegate();
+        }
+    }
+
     public void OnGrabbed(Hand hand)
     {
         if(grabbedDelegate != null)
         {
             grabbedDelegate(hand);
         }
+        releaseStarted = false;
     }
 
     public void OnReleased(Hand hand)
     {
-        if(releasedDelegate != null)
+        releaseStarted = true;
+        if(startReleaseDelegate != null)
         {
-            releasedDelegate(hand);
+            startReleaseDelegate();
         }
     }
 }

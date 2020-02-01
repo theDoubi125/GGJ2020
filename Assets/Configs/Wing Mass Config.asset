@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wing Mass Config
   m_EditorClassIdentifier: 
   drag: 5
-  angularDrag: 10
-  movementForce: 15
-  turnSpeed: 0.5
+  angularDrag: 20
+  movementForce: 30
+  turnSpeed: 3
