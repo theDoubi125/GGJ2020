@@ -9,7 +9,6 @@ using TMPro;
 public class GameManagerScript : MonoBehaviour
 {
     public static GameManagerScript instance = null;
-
    
 
     public enum GameState
@@ -33,9 +32,6 @@ public class GameManagerScript : MonoBehaviour
     public Transform shipRepairPos;
     public GameObject entryDoor;
     public GameObject exitDoor;
-
-    [Header("Events")]
-    public UnityEvent leavingEvent;
 
     [Header("UI")]
     public TextMeshProUGUI timerUI;
@@ -173,14 +169,6 @@ public class GameManagerScript : MonoBehaviour
         Destroy(currentShip);
     }
 
-    IEnumerator pilotAnimation()
-    {
-        pilotAnim.SetActive(true);
-
-        yield return new WaitForSeconds(3.0f);
-        pilotAnim.SetActive(false);
-        
-    }
 
     void Repair()
     {

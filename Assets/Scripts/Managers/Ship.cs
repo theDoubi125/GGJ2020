@@ -79,29 +79,4 @@ public class Ship : MonoBehaviour
         }
     }
 
-    //public void RemoveShipPart(PartType value)
-    //{
-    //    Debug.Log("VALUE REMOVE : " + value);
-    //    switch (value)
-    //    {
-    //        case PartType.Body:
-    //            this.physicalParts[0].SetActive(false);
-    //            break;
-    //        case PartType.LeftWing:
-    //            this.physicalParts[1].SetActive(false);
-    //            break;
-    //        case PartType.RightWing:
-    //            this.physicalParts[2].SetActive(false);
-    //            break;
-    //        case PartType.Reactor:
-    //            this.physicalParts[3].SetActive(false);
-    //            break;
-    //        case PartType.Cockpit:
-    //            this.physicalParts[4].SetActive(false);
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
-
 }
