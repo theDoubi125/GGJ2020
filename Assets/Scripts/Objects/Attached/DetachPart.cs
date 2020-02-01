@@ -15,7 +15,9 @@ public class DetachPart : MonoBehaviour
 
     private void OnInteraction(Hand hand)
     {
+       // Instantiate(toSpawn, transform.position, transform.rotation);
         Instantiate(toSpawn, transform.position, transform.rotation);
+
         gameObject.SetActive(false);
     }
     

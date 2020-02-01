@@ -320,12 +320,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c79c444368bab6428325a9f0da6a2b4, type: 3}
---- !u!1 &3399620222663872848 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9208272001975309638, guid: 2c79c444368bab6428325a9f0da6a2b4,
-    type: 3}
-  m_PrefabInstance: {fileID: 5829832810737992726}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5279615016369332529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1847408160981624103, guid: 2c79c444368bab6428325a9f0da6a2b4,
@@ -399,19 +393,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CockPit
       objectReference: {fileID: 0}
-    - target: {fileID: 8746102785449752895, guid: 211e89b9497030e46b5db88d8ad5fc19,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 211e89b9497030e46b5db88d8ad5fc19, type: 3}
---- !u!1 &2940661983627085037 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8746102785449752895, guid: 211e89b9497030e46b5db88d8ad5fc19,
-    type: 3}
-  m_PrefabInstance: {fileID: 5885978602631069138}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3939413093097768695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7423243956978350885, guid: 211e89b9497030e46b5db88d8ad5fc19,
@@ -487,12 +470,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 010d12afb55f70442a2050069d03c792, type: 3}
---- !u!1 &2656258673039402171 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6724452574401399709, guid: 010d12afb55f70442a2050069d03c792,
-    type: 3}
-  m_PrefabInstance: {fileID: 8759185498774728486}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3508246302374967388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5269541010523510650, guid: 010d12afb55f70442a2050069d03c792,
