@@ -1,0 +1,392 @@
+fileFormatVersion: 2
+guid: 4573de5a521e6234ba639f04e491b0fe
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Niveaux 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 876
+      y: 4
+      width: 0
+      height: 0
+    spriteID: 002d545186780ef46bedf5dd26bca675
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 60, y: -556}
+  - name: Calque 3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 637
+      width: 216
+      height: 177
+    spriteID: 9fe413568a931904b8ce45d0cc86db12
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -76, y: 604}
+  - name: Ellipse 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 327
+      height: 327
+    spriteID: 3bc88e135b628b64297be242ac938457
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -21, y: -210}
+  - name: Compteur de temps
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 339
+      width: 290
+      height: 290
+    spriteID: c3e9b614fadb6c5429ccb564bc7efb33
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -477, y: 105}
+  - name: Rectangle arrondi 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 339
+      y: 252
+      width: 359
+      height: 55
+    spriteID: d77475f760b034c45b2c610e3df838f0
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -107, y: 118}
+  - name: Calque 1 copie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 731
+      y: 4
+      width: 137
+      height: 35
+    spriteID: 32a375812dab3794fa6d435820b52a59
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 182, y: -48}
+  - name: Rectangle arrondi 1 copie 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 339
+      y: 112
+      width: 365
+      height: 62
+    spriteID: f61c997196ca61b48911cc91fab647dd
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -103, y: 59}
+  - name: Calque 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 339
+      y: 4
+      width: 384
+      height: 100
+    spriteID: a19a6293d5f708341ae832f479231343
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -93, y: -30}
+  - name: Rectangle arrondi 1 copie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 339
+      y: 182
+      width: 365
+      height: 62
+    spriteID: 7e6ffc79a00287841b45fbf65b2ded38
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -103, y: 129}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 1024
+  importedTextureHeight: 1024
+  documentSize: {x: 816, y: 560}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
+  textureActualWidth: 1024
+  textureActualHeight: 1024
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Niveaux 1
+    spriteName: Niveaux 1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 002d545186780ef46bedf5dd26bca675
+    layerID: 19
+    mosaicPosition: {x: 876, y: 4}
+  - name: Indicateur joueur
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 
+    layerID: 16
+    mosaicPosition: {x: 0, y: 0}
+  - name: Calque 3
+    spriteName: Calque 3
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 9fe413568a931904b8ce45d0cc86db12
+    layerID: 15
+    mosaicPosition: {x: 4, y: 637}
+  - name: Ellipse 1
+    spriteName: Ellipse 1
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 3bc88e135b628b64297be242ac938457
+    layerID: 14
+    mosaicPosition: {x: 4, y: 4}
+  - name: Compteur de temps
+    spriteName: Compteur de temps
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c3e9b614fadb6c5429ccb564bc7efb33
+    layerID: 10
+    mosaicPosition: {x: 4, y: 339}
+  - name: Barre de progression
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 
+    layerID: 12
+    mosaicPosition: {x: 0, y: 0}
+  - name: Rectangle arrondi 1
+    spriteName: Rectangle arrondi 1
+    isGroup: 0
+    parentIndex: 5
+    spriteID: d77475f760b034c45b2c610e3df838f0
+    layerID: 4
+    mosaicPosition: {x: 339, y: 252}
+  - name: Calque 1 copie
+    spriteName: Calque 1 copie
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 32a375812dab3794fa6d435820b52a59
+    layerID: 6
+    mosaicPosition: {x: 731, y: 4}
+  - name: Rectangle arrondi 1 copie 2
+    spriteName: Rectangle arrondi 1 copie 2
+    isGroup: 0
+    parentIndex: 5
+    spriteID: f61c997196ca61b48911cc91fab647dd
+    layerID: 9
+    mosaicPosition: {x: 339, y: 112}
+  - name: Calque 2
+    spriteName: Calque 2
+    isGroup: 0
+    parentIndex: 5
+    spriteID: a19a6293d5f708341ae832f479231343
+    layerID: 7
+    mosaicPosition: {x: 339, y: 4}
+  - name: Rectangle arrondi 1 copie
+    spriteName: Rectangle arrondi 1 copie
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 7e6ffc79a00287841b45fbf65b2ded38
+    layerID: 8
+    mosaicPosition: {x: 339, y: 182}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 0
+  textureAssetName: UI Texture
+  prefabAssetName: UI Prefab
+  spriteLibAssetName: UI Sprite Lib
+  secondarySpriteTextures: []

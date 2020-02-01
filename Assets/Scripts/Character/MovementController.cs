@@ -12,13 +12,12 @@ public class MovementController : MonoBehaviour
     public float turnSpeed;
     private Rigidbody rigidbody;
 
-
-    public Ship currentShip;
-
+    public Transform spawnPoint;
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        this.transform.position = spawnPoint.position;
     }
 
     void Update()

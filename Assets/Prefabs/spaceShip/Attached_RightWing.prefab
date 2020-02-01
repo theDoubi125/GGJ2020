@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -4489773096464488516}
   - component: {fileID: 1173591968260961564}
   m_Layer: 0
-  m_Name: RightWing_Attached
+  m_Name: Attached_RightWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e7f59f335cf63749b23005ff5977424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toSpawn: {fileID: 7873922385029172263, guid: c63678a8c71d0104cb1afcbe5ee3846a, type: 3}
+  toSpawn: {fileID: 7873922385029172263, guid: fadd905f773294644a287d5a3cf55ba4, type: 3}
 --- !u!65 &4997862606112041826
 BoxCollider:
   m_ObjectHideFlags: 0
