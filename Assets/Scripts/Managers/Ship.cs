@@ -13,13 +13,12 @@ public class Ship : MonoBehaviour
         Body
     }
 
-    public List<PartType> partTypeToSetup;
     public int brokenPart;
+    public List<PartType> partTypeToSetup;
     public List<Shippart> listOfParts;
     public List<GameObject> physicalParts;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         brokenPart = 0;
         partTypeToSetup.Add(PartType.Body);
@@ -28,7 +27,14 @@ public class Ship : MonoBehaviour
         partTypeToSetup.Add(PartType.Reactor);
         partTypeToSetup.Add(PartType.Cockpit);
 
-        GenerateBrokenSpaceship(5,3);
+        GenerateBrokenSpaceship(5, 3);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+      
+
 
         
     }
@@ -78,30 +84,5 @@ public class Ship : MonoBehaviour
             physicalParts.Add(childs.gameObject);
         }
     }
-
-    //public void RemoveShipPart(PartType value)
-    //{
-    //    Debug.Log("VALUE REMOVE : " + value);
-    //    switch (value)
-    //    {
-    //        case PartType.Body:
-    //            this.physicalParts[0].SetActive(false);
-    //            break;
-    //        case PartType.LeftWing:
-    //            this.physicalParts[1].SetActive(false);
-    //            break;
-    //        case PartType.RightWing:
-    //            this.physicalParts[2].SetActive(false);
-    //            break;
-    //        case PartType.Reactor:
-    //            this.physicalParts[3].SetActive(false);
-    //            break;
-    //        case PartType.Cockpit:
-    //            this.physicalParts[4].SetActive(false);
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
 
 }
