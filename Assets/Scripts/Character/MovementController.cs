@@ -22,6 +22,7 @@ public class MovementController : MonoBehaviour
         Vector3 inputDirection = new Vector3(input.x, 0, input.y);
         if(inputDirection.magnitude > 1)
             inputDirection = inputDirection.normalized;
-        rigidbody.AddForceAtPosition(inputDirection * movementForce, transform.position + transform.forward * turnSpeed);
+        rigidbody.AddForce(inputDirection * movementForce);
+        rigidbody.AddTorque(Vector3.Cross(transform.forward, inputDirection).normalized * turnSpeed);
     }
 }

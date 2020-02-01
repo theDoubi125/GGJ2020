@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd884ae98fb15d84db08046d9ce48b0f, type: 3}
   m_Name: ChariotMassConfig
   m_EditorClassIdentifier: 
-  drag: 2
+  drag: 3
   angularDrag: 20
-  movementForce: 20
-  turnSpeed: 3
+  movementForce: 10
+  turnSpeed: 10

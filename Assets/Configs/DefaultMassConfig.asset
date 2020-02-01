@@ -15,4 +15,4 @@ MonoBehaviour:
   drag: 5
   angularDrag: 10
   movementForce: 22.89
-  turnSpeed: 1
+  turnSpeed: 10

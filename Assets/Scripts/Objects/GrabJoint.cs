@@ -17,6 +17,7 @@ public class GrabJoint : MonoBehaviour
     {
         FixedJoint fixedJoint = gameObject.AddComponent<FixedJoint>();
         fixedJoint.connectedBody = hand.grabJointTarget;
+        fixedJoint.connectedMassScale = 0;
     }
 
     private void OnReleased()

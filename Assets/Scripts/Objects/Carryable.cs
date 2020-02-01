@@ -54,6 +54,7 @@ public class Carryable : MonoBehaviour
                 inGrabAnimation = false;
                 fixedJoint = gameObject.AddComponent<FixedJoint>();
                 fixedJoint.connectedBody = attachedHand.grabJointTarget;
+                fixedJoint.connectedMassScale = 0;
             }
         }
     }

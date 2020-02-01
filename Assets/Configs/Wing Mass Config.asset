@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd884ae98fb15d84db08046d9ce48b0f, type: 3}
   m_Name: Wing Mass Config
   m_EditorClassIdentifier: 
-  drag: 5
+  drag: 15
   angularDrag: 20
-  movementForce: 2
-  turnSpeed: 5
+  movementForce: 15
+  turnSpeed: 10
