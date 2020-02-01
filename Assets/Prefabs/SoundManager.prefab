@@ -71,7 +71,12 @@ MonoBehaviour:
   shipConnectPiece: {fileID: 8300000, guid: 9b23b2d891150d940a4909409b33c782, type: 3}
   shipLeaving: {fileID: 8300000, guid: 3b40e512272d0d94988ba126dd84c609, type: 3}
   shipCrashDoor: {fileID: 8300000, guid: ac98489c262ce7f4295db8d144891b71, type: 3}
-  shipWarning: []
+  shipWarning:
+  - {fileID: 8300000, guid: d2c28ea8d04732f43ac2feac05b5935d, type: 3}
+  - {fileID: 8300000, guid: c4340391bed76fc49871783227f3ceda, type: 3}
+  - {fileID: 8300000, guid: d105df728bfc50946ac87022fa792f93, type: 3}
+  - {fileID: 8300000, guid: f739c67f73865ff4f8543f2f0e589e3f, type: 3}
+  - {fileID: 8300000, guid: e381639acfdcaf346bba2300e40bd764, type: 3}
   toolBlowtorch: {fileID: 8300000, guid: eace3c4cee62ad144a51da4906930bbd, type: 3}
   toolGet: {fileID: 8300000, guid: 3cb49c4a69543d244a873f1ca50c5bb5, type: 3}
 --- !u!82 &3879375176966200036

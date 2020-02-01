@@ -47,7 +47,9 @@ public class GameManagerScript : MonoBehaviour
     private float leavingTimer;
     private GameObject currentShip;
     private Ship currentShipScript;
-    
+
+    private bool shipWarningPlayed = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -73,7 +75,13 @@ public class GameManagerScript : MonoBehaviour
             case GameState.Waiting:
                 if (waitTimer < 5) {
                     waitTimer += Time.deltaTime;
+                    if(waitTimer >= 2.5 && !shipWarningPlayed)
+                    {
+                        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipWarning);
+                        shipWarningPlayed = true;
+                    }
                 } else {
+                    shipWarningPlayed = false;
                     StartCoroutine(ArrivingShip());
                     timerUI.text = "BE PREPARED IT'S COMING !";
                     currentState = GameState.Arriving;
