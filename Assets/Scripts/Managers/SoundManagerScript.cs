@@ -34,6 +34,12 @@ public class SoundManagerScript : MonoBehaviour
     public AudioSource musicSource;
     public AudioSource sfxSource;
 
+    public AudioSource player1Source;
+    public AudioSource player2Source;
+
+    public Rigidbody player1RigidBody;
+    public Rigidbody player2RigidBody;
+
     bool muteSFX = false;
 
     [Header("Doors")]
@@ -89,6 +95,20 @@ public class SoundManagerScript : MonoBehaviour
     {
         musicSource = GetComponent<AudioSource>();
         StartCoroutine(DelayPlayMusic());
+
+        player1Source.loop = true;
+        player1Source.clip = playerRolling;
+        player1Source.Play();
+
+        player2Source.loop = true;
+        player2Source.clip = playerRolling;
+        player2Source.Play();
+    }
+
+    void Update()
+    {
+        player1Source.volume = Mathf.Max(0.1f, 0.02f * player1RigidBody.velocity.magnitude);
+        player2Source.volume = Mathf.Max(0.1f, 0.02f * player1RigidBody.velocity.magnitude);
     }
 
     IEnumerator DelayPlayMusic()
