@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2241613155515773465}
+  - component: {fileID: 5866911291936384414}
   m_Layer: 0
   m_Name: spaceShipPlaceholder
   m_TagString: Untagged
@@ -35,6 +36,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5866911291936384414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2972541304615649290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e94df43dd03f54a95b16efff4b8a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partTypeToSetup: 
+  brokenPart: 0
+  listOfParts: []
 --- !u!1001 &970595961012982091
 PrefabInstance:
   m_ObjectHideFlags: 0
