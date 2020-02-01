@@ -7,6 +7,8 @@ public class Interactable : MonoBehaviour
 {
     public Action<bool> hilightChangedDelegate; 
     public Action<Hand> interactDelegate;
+    public Tool.ToolType neededTool;
+    public bool isSmall = false;
 
     public void SetHilight(bool hilight)
     {
@@ -14,9 +16,9 @@ public class Interactable : MonoBehaviour
             hilightChangedDelegate(hilight);
     }
 
-    public void OnInteractionBy(Hand hand)
+    public void OnInteractionBy(Hand hand, Tool.ToolType toolType)
     {
-        if(interactDelegate != null)
+        if(interactDelegate != null && toolType == neededTool)
             interactDelegate(hand);
     }
 }

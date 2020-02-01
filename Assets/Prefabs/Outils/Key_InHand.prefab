@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7831711603439166410}
   - component: {fileID: 1293890485735447036}
   - component: {fileID: 4812197227265991941}
+  - component: {fileID: -2709410127305140886}
   m_Layer: 0
-  m_Name: Key
+  m_Name: Key_InHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6554019408486666713}
-  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1293890485735447036
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -80,3 +81,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-2709410127305140886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6554019408486666713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2070d4edc0df1354a94be5d3743c9f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolType: 1
+  droppedVersionPrefab: {fileID: 7831711603439166410, guid: 68ae4d8342574b848a5856484aac5b0e,
+    type: 3}

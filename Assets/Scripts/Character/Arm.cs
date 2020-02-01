@@ -68,4 +68,5 @@ public class Arm : MonoBehaviour
     {
         return currentAngle > releaseAngle;
     }
+
 }
