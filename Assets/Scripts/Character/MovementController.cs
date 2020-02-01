@@ -7,12 +7,12 @@ public class MovementController : MonoBehaviour
 {
     public Vector2 input;
     public float movementForce;
+    public float turnSpeed;
     private Rigidbody rigidbody;
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-
     }
 
     void Update()
@@ -20,8 +20,8 @@ public class MovementController : MonoBehaviour
         input.x = Input.GetAxis("Horizontal");
         input.y = Input.GetAxis("Vertical");
         Vector3 inputDirection = new Vector3(input.x, 0, input.y);
-        rigidbody.AddForce(inputDirection * movementForce);
-        // Quaternion.LookRotation()
-        
+        if(inputDirection.magnitude > 1)
+            inputDirection = inputDirection.normalized;
+        rigidbody.AddForceAtPosition(inputDirection * movementForce, transform.position + transform.forward * turnSpeed);
     }
 }
