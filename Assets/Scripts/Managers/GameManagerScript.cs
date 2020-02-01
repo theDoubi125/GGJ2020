@@ -132,7 +132,7 @@ public class GameManagerScript : MonoBehaviour
 
         repairTimer = 0.0f;
 
-        currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.identity);
+        currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.Euler(0,90,0));
         currentShipStat = currentShip.GetComponent<Ship>();
 
         Sequence shipArrivingSeq = DOTween.Sequence();
