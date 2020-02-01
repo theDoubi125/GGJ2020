@@ -17,6 +17,7 @@ public class GameManagerScript : MonoBehaviour
 
 
     private GameObject currentShip;
+    private Ship currentShipStat;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,10 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Repair();
+        }
     }
 
     IEnumerator InitGame()
@@ -42,13 +46,14 @@ public class GameManagerScript : MonoBehaviour
         ArrivingShip();
 
         yield return new WaitForSeconds(5);
-        LeavingShip();
+        //LeavingShip();
     }
 
 
     void ArrivingShip()
     {
         currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.identity);
+        currentShipStat = currentShip.GetComponent<Ship>();
 
         Sequence shipArrivingSeq = DOTween.Sequence();
         shipArrivingSeq.Append(currentShip.transform.DOMoveX(0, 1))
@@ -63,4 +68,15 @@ public class GameManagerScript : MonoBehaviour
     }
 
     
+    void Repair()
+    {
+        currentShipStat.brokenPart--;
+
+        if (currentShipStat != null && currentShipStat.brokenPart == 0 )
+        {
+            LeavingShip();
+        }
+
+    }
+
 }
