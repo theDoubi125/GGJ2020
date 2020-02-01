@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1044456338526591431}
   - component: {fileID: 971420726712996794}
   - component: {fileID: 8401464491346363973}
+  - component: {fileID: 2163790003131845154}
   m_Layer: 0
   m_Name: SpaceShip_Placeholder
   m_TagString: Untagged
@@ -93,3 +94,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2163790003131845154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516201971957346015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e94df43dd03f54a95b16efff4b8a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brokenPart: 5
