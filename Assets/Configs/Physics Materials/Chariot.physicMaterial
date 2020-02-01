@@ -9,6 +9,6 @@ PhysicMaterial:
   m_Name: Chariot
   dynamicFriction: 0.08
   staticFriction: 0
-  bounciness: 0
+  bounciness: 0.5
   frictionCombine: 1
   bounceCombine: 0
