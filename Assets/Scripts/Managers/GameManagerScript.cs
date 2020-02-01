@@ -170,7 +170,8 @@ public class GameManagerScript : MonoBehaviour
     {
         //random le nombre
         currentShipStat.brokenPart = 5;
-
+        repairFinish = false;
+        shipIsArrived = false;
         waitTimer = 0f;
 
     }
