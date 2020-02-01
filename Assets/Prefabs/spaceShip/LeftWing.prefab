@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1847408160981624103}
   - component: {fileID: 476330315037408408}
   - component: {fileID: 5843597298651096569}
+  - component: {fileID: 4678128366848448697}
+  - component: {fileID: 5555358756952255152}
   m_Layer: 0
   m_Name: LeftWing
   m_TagString: Untagged
@@ -80,3 +82,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4678128366848448697
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9208272001975309638}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3711598852048348112, guid: 1792af37ed99323488e0e806d0824a58, type: 3}
+--- !u!114 &5555358756952255152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9208272001975309638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10656e1ed0675f4c9dbd161915a423d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

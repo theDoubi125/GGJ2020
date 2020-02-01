@@ -8,6 +8,10 @@ using TMPro;
 
 public class GameManagerScript : MonoBehaviour
 {
+    public static GameManagerScript instance = null;
+
+   
+
     public enum GameState
     {
         Waiting,
@@ -28,6 +32,7 @@ public class GameManagerScript : MonoBehaviour
     public Transform shipSpawnPos;
     public Transform shipRepairPos;
     public GameObject entryDoor;
+    public MovementController player;
 
     [Header("Events")]
     public UnityEvent leavingEvent;
@@ -39,13 +44,18 @@ public class GameManagerScript : MonoBehaviour
     private float repairTimer;
     private float leavingTimer;
     private GameObject currentShip;
-    private Ship currentShipStat;
+    private Ship currentShipScript;
     
 
     // Start is called before the first frame update
     void Start()
     {
         DOTween.Init();
+
+        if(instance == null)
+        {
+            instance = this;
+        }
 
         waitTimer = 0.0f;
         currentState = GameState.Waiting;
@@ -121,9 +131,10 @@ public class GameManagerScript : MonoBehaviour
         repairTimer = 0.0f;
 
         currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.Euler(0,90,0));
-        currentShipStat = currentShip.GetComponent<Ship>();
+        currentShipScript = currentShip.GetComponent<Ship>();
+       // player.currentShip = currentShipScript;
 
-        var doorTween = entryDoor.transform.DOMoveY(10, 1);
+        var doorTween = entryDoor.transform.DOMoveY(15, 1);
         yield return doorTween.WaitForCompletion();
 
         Sequence shipArrivingSeq = DOTween.Sequence();
@@ -148,9 +159,9 @@ public class GameManagerScript : MonoBehaviour
 
     void Repair()
     {
-        currentShipStat.brokenPart--;
+        currentShipScript.brokenPart--;
 
-        if (currentShipStat != null && currentShipStat.brokenPart <= 0 )
+        if (currentShipScript != null && currentShipScript.brokenPart <= 0 )
         {
             repairFinish = true;
         }
@@ -160,11 +171,13 @@ public class GameManagerScript : MonoBehaviour
     void ResetSettings()
     {
         //random le nombre
-        currentShipStat.brokenPart = 5;
+        currentShipScript.brokenPart = 5;
         repairFinish = false;
         shipIsArrived = false;
         waitTimer = 0f;
 
     }
+
+   
 
 }
