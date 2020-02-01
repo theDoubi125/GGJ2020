@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8792272242698545935}
   - component: {fileID: 2219831288098210015}
   - component: {fileID: 7079871566750534072}
+  - component: {fileID: 9125981314067739051}
+  - component: {fileID: 7907129945523928553}
   m_Layer: 0
   m_Name: CockPit
   m_TagString: Untagged
@@ -27,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8746102785449752895}
-  m_LocalRotation: {x: 0.48169947, y: 0.51765394, z: 0.5176545, w: -0.48169902}
+  m_LocalRotation: {x: -0.48169932, y: -0.5176541, z: -0.5176541, w: 0.48169932}
   m_LocalPosition: {x: 8.363073, y: -2.2798088, z: 9.392017}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -94.121}
 --- !u!33 &340466499882508435
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -110,3 +112,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10656e1ed0675f4c9dbd161915a423d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9125981314067739051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746102785449752895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7f59f335cf63749b23005ff5977424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSpawn: {fileID: 7423243956978350885, guid: 1aa09286984ad86458fa27f33840e528, type: 3}
+--- !u!114 &7907129945523928553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746102785449752895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abbf3a83b88bc34398aebab5207d1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicMaterial: {fileID: 2100000, guid: 13ffc073001a88c4593d8dafe7aff69e, type: 2}
+  hilightedMaterial: {fileID: 2100000, guid: 4de9e923393b3df45942ad314b91e94e, type: 2}
+  renderer: {fileID: 0}
