@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drag: 5
   angularDrag: 20
-  movementForce: 30
-  turnSpeed: 3
+  movementForce: 2
+  turnSpeed: 5
