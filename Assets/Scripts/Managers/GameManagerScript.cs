@@ -257,7 +257,13 @@ public class GameManagerScript : MonoBehaviour
         Destroy(currentShip);
     }
 
-    void FinishedRepair()
+    public void UpdateText()
+    {
+        if(brokenPartText != null && currentShipScript != null)
+            brokenPartText.text = "BROKEN PARTS REMAINING : " + currentShipScript.brokenPart;
+    }
+
+    public void FinishedRepair()
     {
         lapsTime.Add(repairTimer);
         //lapsUI[currentStopCount].text = lapsTime[currentStopCount].ToString("f3");
