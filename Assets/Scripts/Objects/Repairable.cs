@@ -67,6 +67,7 @@ public class Repairable : MonoBehaviour
                 {
                     SpawnVersion(RepairState.Unpainted);
                     Instantiate(repairFXPrefab, transform.position, Quaternion.identity);
+                    SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ObjectRepair);
                 }
                 break;
             case Tool.ToolType.BlowPipe:
@@ -74,6 +75,7 @@ public class Repairable : MonoBehaviour
                 {
                     SpawnVersion(RepairState.Unpainted);
                     Instantiate(repairFXPrefab, transform.position, Quaternion.identity);
+                    SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ObjectRepair);
                 }
                 break;
         }
@@ -85,6 +87,7 @@ public class Repairable : MonoBehaviour
         if(currentState == RepairState.Unpainted)
         {
             SpawnVersion(RepairState.Repaired);
+            SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ObjectPutColor);
         }
     }
 }
