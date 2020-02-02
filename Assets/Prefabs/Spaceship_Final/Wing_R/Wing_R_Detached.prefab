@@ -104,6 +104,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipPart: 1
+--- !u!114 &555549609740983308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222933589987159901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291078cff05689448b9522e175858a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 0
 --- !u!1001 &6954151948045483738
 PrefabInstance:
   m_ObjectHideFlags: 0
