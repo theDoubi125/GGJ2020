@@ -14,15 +14,18 @@ public class MainMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.anyKey)
+        if(Input.anyKeyDown)
         {
-            LoadGameScene();
+            SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.MenuStart);
+            StartCoroutine(StartMethod(0.5f));
         }
     }
 
-    public void LoadGameScene()
+    private IEnumerator StartMethod(float delay)
     {
+        yield return new WaitForSeconds(delay);
+        SoundManagerScript.instance.StartPlaySounds();
         SceneManager.LoadScene(1);
-    }
 
+    }
 }

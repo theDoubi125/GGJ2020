@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/FInalScenes/MenuScene.unity
     guid: 86601d4e718b19440801f4c5858ee1c4
   - enabled: 1
-    path: Assets/Scenes/FInalScenes/FinalCountdownScene.unity
-    guid: 0c836393be9f5f744b9d5e844f01bea9
+    path: Assets/Scenes/FinalScene.unity
+    guid: 119972890ce8cc740834cce0d800bfcc
   - enabled: 1
     path: Assets/Scenes/FInalScenes/End.unity
     guid: 2c1d8ed99ebe232448f9210700ceb31c

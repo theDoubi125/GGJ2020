@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -25,6 +25,7 @@ public class GameManagerScript : MonoBehaviour
     public int totalStop;
     int currentStopCount;
     public float initialWaitTime;
+    public float maxTimeToBeat;
     public bool repairFinish = false;
     public bool shipIsArrived = false;
 
@@ -34,13 +35,13 @@ public class GameManagerScript : MonoBehaviour
     public Transform shipRepairPos;
     public GameObject entryDoor;
     public GameObject exitDoor;
-    public List<float> lapsTime;
+     List<float> lapsTime;
     public List<TextMeshProUGUI> lapsUI;
 
     [Header("UI")]
     public TextMeshProUGUI timerUI;
-    public TextMeshProUGUI brokenPartCount;
-    public GameObject pilotAnim;
+    public TextMeshProUGUI textUI;
+    public TextMeshProUGUI brokenPartText;
     public Animator animatorUI;
 
     private float waitTimer;
@@ -65,12 +66,16 @@ public class GameManagerScript : MonoBehaviour
         {
             instance = this;
         }
+
         lapsTime = new List<float>(3);
 
+        currentStopCount = 0;
         waitTimer = 0.0f;
         currentState = GameState.Waiting;
-        timerUI.text = "PREPARE THE PIT !";
+
+        textUI.text = "PREPARE THE PIT FOR THE NEXT STOP !";
         driveByTimer = Random.Range(minDelayBetweenDriveBy, maxDelayBetweenDriveBy);
+
     }
 
     // Update is called once per frame
@@ -96,10 +101,10 @@ public class GameManagerScript : MonoBehaviour
                     if (currentStopCount < totalStop) {
                         shipWarningPlayed = false;
                         StartCoroutine(ArrivingShip());
-                        timerUI.text = "BE PREPARED IT'S COMING !";
+                        textUI.text = "BE PREPARED IT'S COMING !";
                         currentState = GameState.Arriving;
                     } else {
-                        timerUI.text = "END OF THE RACE ! <br>TOTAL TIME :" + totalRunTime.ToString("f3");
+                       
 
                     }
 
@@ -108,6 +113,9 @@ public class GameManagerScript : MonoBehaviour
             case GameState.Arriving:
                 if(shipIsArrived)
                 {
+                    textUI.enabled = false;
+                    timerUI.enabled = true;
+
                     currentState = GameState.PitStop;
                 }
                 break;
@@ -120,10 +128,8 @@ public class GameManagerScript : MonoBehaviour
                 }
                 else
                 {
-                    lapsTime[currentStopCount] = repairTimer;
-                    StartCoroutine(LeavingShip());
-                    leavingTimer = 0f;
-                    currentState = GameState.Leaving;
+                    Debug.Log("CURRENT STOP COUNT : " + currentStopCount);
+                    FinishedRepair();
                 }
                 break;
             case GameState.Leaving:
@@ -133,9 +139,22 @@ public class GameManagerScript : MonoBehaviour
                 }
                 else
                 {
-                    
+                    textUI.enabled = true;
+                    timerUI.enabled = false;
+                   
                     currentStopCount++;
                     ResetSettings();
+
+                    if(currentStopCount >= 3 )
+                    {
+                        textUI.text = "END OF THE RACE! <br>TOTAL TIME :" + totalRunTime.ToString("f3");
+                        EndGameCheck();
+                    }
+                    else
+                    {
+                        textUI.text = "PREPARE THE PIT FOR THE NEXT STOP !";
+                    }
+
                     currentState = GameState.Waiting;
                 }
                 break;
@@ -152,7 +171,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
     }
-
+        
 
     IEnumerator ArrivingShip()
     {
@@ -161,11 +180,18 @@ public class GameManagerScript : MonoBehaviour
 
         SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipArriving);
 
-        currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.Euler(0,90,0));
+        currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.Euler(-90,180,-90));
+        var children = currentShip.GetComponentsInChildren<Repairable>();
+        foreach(var child in children)
+        {
+            child.currentState = (RepairState)Random.Range(0, 4);
+        }
+
+
         currentShipScript = currentShip.GetComponent<Ship>();
 
-        if(brokenPartCount != null && currentShipScript != null)
-            brokenPartCount.text = currentShipScript.brokenPart.ToString();
+        if(brokenPartText != null && currentShipScript != null)
+            brokenPartText.text = "BROKEN PARTS REMAINING : " + currentShipScript.brokenPart;
 
         var initialYDoorPos = entryDoor.transform.position.y;
 
@@ -176,7 +202,7 @@ public class GameManagerScript : MonoBehaviour
 
         Sequence shipArrivingSeq = DOTween.Sequence();
         shipArrivingSeq.Append(currentShip.transform.DOMoveX(0, 1))
-        .Append(currentShip.transform.DOMoveY(2, 1));
+        .Append(currentShip.transform.DOMoveY(1, 1));
         yield return shipArrivingSeq.WaitForCompletion();
 
         shipIsArrived = true;
@@ -214,11 +240,30 @@ public class GameManagerScript : MonoBehaviour
         Destroy(currentShip);
     }
 
+    void FinishedRepair()
+    {
+        lapsTime.Add(repairTimer);
+        lapsUI[currentStopCount].text = lapsTime[currentStopCount].ToString("f3");
+        StartCoroutine(LeavingShip());
+        leavingTimer = 0f;
+        currentState = GameState.Leaving;
+    }
 
     void Repair()
     {
         currentShipScript.brokenPart--;
+        if(currentShipScript.brokenPart > 0)
+        {
+            brokenPartText.text = "BROKEN PARTS REMAINING : " + currentShipScript.brokenPart;
+            //brokenPartCount.text = currentShipScript.brokenPart.ToString();
+        }
+        else
+        {
+            brokenPartText.text = "SHIP READY TO LEAVE !";
+            //brokenPartCount.text = "";
+        }
 
+        
         if (currentShipScript != null && currentShipScript.brokenPart <= 0 )
         {
             repairFinish = true;
@@ -233,11 +278,31 @@ public class GameManagerScript : MonoBehaviour
         repairFinish = false;
         shipIsArrived = false;
         waitTimer = 0f;
+        brokenPartText.text = "";
 
         totalRunTime += repairTimer;
         driveByTimer = Random.Range(minDelayBetweenDriveBy, maxDelayBetweenDriveBy);
     }
 
-   
+    void FormatTime(float value)
+    {
+       // var afterDot = 
+    }
 
+    void EndGameCheck()
+    {
+        if(totalRunTime > maxTimeToBeat)
+        {
+            textUI.text = "YOU FINISHED 2ND OF THE RACE ! THE FIRST BEAT YOU WITH AN ADVANCE OF " + (totalRunTime - maxTimeToBeat)  + " SECONDS";
+        }
+        else
+        {
+            textUI.text = "YOU HAVE WIN THE RACE ! WITH AN ADVANCE OF " + ( maxTimeToBeat - totalRunTime) + " SECONDS";
+        }
+    }
+
+    void RestartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
