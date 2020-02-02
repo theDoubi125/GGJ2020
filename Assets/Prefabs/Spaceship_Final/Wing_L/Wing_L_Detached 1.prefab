@@ -42,7 +42,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -6341619492483105288, guid: 88bc6217e9838ec4f96195cba31285a0, type: 3}
+  m_Mesh: {fileID: 1115551098817632317, guid: fd74e1d313e54cc42ac939cb3e96c912, type: 3}
 --- !u!114 &-8916852427329337084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +55,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27dbcd2412bdf14494053efef0a551a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8102996500218414247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222933589987159901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291078cff05689448b9522e175858a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 0
 --- !u!114 &-7430532171009659373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +117,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipPart: 0
+--- !u!114 &97069223373391958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222933589987159901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c460e8aece47e42be2078ac3a321f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  massConfig: {fileID: 11400000, guid: be34e39bedb995f47b0f825f7e9d006a, type: 2}
 --- !u!114 &5584228085742414530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,19 +144,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neededTool: 0
   isSmall: 0
---- !u!114 &-8102996500218414247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3222933589987159901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 291078cff05689448b9522e175858a03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravity: 0
 --- !u!1001 &6954151948045483738
 PrefabInstance:
   m_ObjectHideFlags: 0
