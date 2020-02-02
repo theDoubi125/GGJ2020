@@ -8,7 +8,6 @@ public enum RepairState
 }
 public class Repairable : MonoBehaviour
 {
-    public Tool.ToolType toolType;
     public Transform repairedPrefab;
     public Transform twistedPrefab;
     public Transform unpaintedPrefab;
