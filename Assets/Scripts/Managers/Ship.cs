@@ -13,7 +13,11 @@ public class Ship : MonoBehaviour
         Body
     }
 
-    public int brokenPart;
+    public int brokenPart = 0;
+    public int twistedPart = 0;
+    public int unpaintedPart = 0;
+    public int repairedPart = 0;
+
     public List<PartType> partTypeToSetup;
     public List<Shippart> listOfParts;
     public List<GameObject> physicalParts;
@@ -26,23 +30,69 @@ public class Ship : MonoBehaviour
         partTypeToSetup.Add(PartType.RightWing);
         partTypeToSetup.Add(PartType.Reactor);
         partTypeToSetup.Add(PartType.Cockpit);
-
-        GenerateBrokenSpaceship(5, 3);
+        GenerateBrokenSpaceshipNV(6, 3);
+        //GenerateBrokenSpaceship(5, 3);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-      
+       
 
 
-        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void GenerateBrokenSpaceshipNV(int totalPart, int minBrokenPart)
+    {
+        var children = this.GetComponentsInChildren<Repairable>();
+
+        foreach (var child in children)
+        {
+            var rand = Random.Range(0, 4);
+            
+            child.currentState = (RepairState)rand;
+
+            switch (child.currentState)
+            {
+                case RepairState.Repaired:
+                    repairedPart++;
+                    break;
+                case RepairState.Twisted:
+                    twistedPart++;
+                    break;
+                case RepairState.Unpainted:
+                    unpaintedPart++;
+                    break;
+                case RepairState.Damaged:
+                    brokenPart++;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        if (twistedPart + brokenPart + unpaintedPart < minBrokenPart)
+        {
+            var sum = twistedPart + brokenPart + unpaintedPart;
+            foreach (var child in children)
+            {
+                if (child.currentState != RepairState.Repaired)
+                {
+                    child.currentState = (RepairState)Random.Range(1, 4);
+                    sum++;
+                    if (sum >= minBrokenPart)
+                    {
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     void GenerateBrokenSpaceship(int totalPart, int maxBrokenPart)
