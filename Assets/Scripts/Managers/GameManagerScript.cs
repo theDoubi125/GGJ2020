@@ -73,7 +73,8 @@ public class GameManagerScript : MonoBehaviour
         waitTimer = 0.0f;
         currentState = GameState.Waiting;
 
-        textUI.text = "PREPARE THE PIT FOR THE NEXT STOP !";
+        if(textUI != null)
+            textUI.text = "PREPARE THE PIT FOR THE NEXT STOP !";
         driveByTimer = Random.Range(minDelayBetweenDriveBy, maxDelayBetweenDriveBy);
 
     }
@@ -101,7 +102,9 @@ public class GameManagerScript : MonoBehaviour
                     if (currentStopCount < totalStop) {
                         shipWarningPlayed = false;
                         StartCoroutine(ArrivingShip());
-                        textUI.text = "BE PREPARED IT'S COMING !";
+                        if(textUI != null)
+                            textUI.text = "BE PREPARED IT'S COMING !";
+
                         currentState = GameState.Arriving;
                     } else {
                        
@@ -113,7 +116,8 @@ public class GameManagerScript : MonoBehaviour
             case GameState.Arriving:
                 if(shipIsArrived)
                 {
-                    textUI.enabled = false;
+                    if(textUI != null)
+                        textUI.enabled = false;
                     timerUI.enabled = true;
 
                     currentState = GameState.PitStop;
@@ -250,12 +254,14 @@ public class GameManagerScript : MonoBehaviour
         currentShipScript.brokenPart--;
         if(currentShipScript.brokenPart > 0)
         {
-            brokenPartText.text = "BROKEN PARTS REMAINING : " + currentShipScript.brokenPart;
+            if(brokenPartText.text != null)
+                brokenPartText.text = "BROKEN PARTS REMAINING : " + currentShipScript.brokenPart;
             //brokenPartCount.text = currentShipScript.brokenPart.ToString();
         }
         else
         {
-            brokenPartText.text = "SHIP READY TO LEAVE !";
+            if(brokenPartText != null)
+                brokenPartText.text = "SHIP READY TO LEAVE !";
             //brokenPartCount.text = "";
         }
 

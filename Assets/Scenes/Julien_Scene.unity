@@ -6266,7 +6266,7 @@ PrefabInstance:
         type: 3}
       propertyPath: toSpawn
       value: 
-      objectReference: {fileID: 3177192698503158756, guid: dbfe26093f1304343a81b83518af0d40,
+      objectReference: {fileID: 3177192698503158756, guid: 1cddcf4960a50104796734b0245397c5,
         type: 3}
     - target: {fileID: 3673789316837567654, guid: 869ed5edcdf2cde4085d27ca1a8366e7,
         type: 3}
@@ -6403,31 +6403,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 9127120572191758296, guid: fd74e1d313e54cc42ac939cb3e96c912,
+      objectReference: {fileID: 5041565236075717657, guid: fd74e1d313e54cc42ac939cb3e96c912,
         type: 3}
     - target: {fileID: 7639345682564386596, guid: 869ed5edcdf2cde4085d27ca1a8366e7,
         type: 3}
       propertyPath: repairedPrefab
       value: 
-      objectReference: {fileID: 4884608065845610575, guid: 81b46109b807b0745b28030337826950,
+      objectReference: {fileID: 4884608065845610575, guid: fb426af3689239340916d98140fb474f,
         type: 3}
     - target: {fileID: 7639345682564386596, guid: 869ed5edcdf2cde4085d27ca1a8366e7,
         type: 3}
       propertyPath: twistedPrefab
       value: 
-      objectReference: {fileID: 4884608065845610575, guid: 07f1fffa1307cce4197979687da0d1b5,
+      objectReference: {fileID: 4884608065845610575, guid: 80fef10266e76e145aee9f8c8175af6d,
         type: 3}
     - target: {fileID: 7639345682564386596, guid: 869ed5edcdf2cde4085d27ca1a8366e7,
         type: 3}
       propertyPath: unpaintedPrefab
       value: 
-      objectReference: {fileID: 4884608065845610575, guid: 9083cabf680f29a4dab842eec6d128eb,
+      objectReference: {fileID: 4884608065845610575, guid: 2a89f1b4e4acc9a4c8cf89e3a2ee0a5c,
         type: 3}
     - target: {fileID: 7639345682564386596, guid: 869ed5edcdf2cde4085d27ca1a8366e7,
         type: 3}
       propertyPath: damagedPrefab
       value: 
-      objectReference: {fileID: 4884608065845610575, guid: 5437eb3155683d443a53fe6d550d30d1,
+      objectReference: {fileID: 4884608065845610575, guid: 676ff86568110004ca6fc323ac41de83,
         type: 3}
     - target: {fileID: 7639345682564386596, guid: 869ed5edcdf2cde4085d27ca1a8366e7,
         type: 3}
