@@ -15,6 +15,7 @@ public class HilightAllMaterialsSwitcher: MonoBehaviour
         if(renderer == null)
             renderer = GetComponent<Renderer>();
         
+        
     }
 
     public void OnHilightChanged(bool hilighted)
@@ -25,7 +26,8 @@ public class HilightAllMaterialsSwitcher: MonoBehaviour
             for(int i=0; i< renderer.materials.Length; i++)
             {
                 baseMaterials[i] = renderer.materials[i];
-                renderer.sharedMaterials[i]= hilightedMaterial;
+                if(renderer != null)
+                    renderer.sharedMaterials[i]= hilightedMaterial;
             }
 
         }
@@ -33,7 +35,8 @@ public class HilightAllMaterialsSwitcher: MonoBehaviour
         {
             for(int i=0; i< renderer.materials.Length; i++)
             {
-                renderer.sharedMaterials[i]= baseMaterials[i];
+                if(renderer != null)
+                    renderer.sharedMaterials[i]= baseMaterials[i];
             }
 
         }

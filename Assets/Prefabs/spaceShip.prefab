@@ -112,6 +112,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: mainAirplane
       objectReference: {fileID: 0}
+    - target: {fileID: 990923604816412740, guid: a29b8e53e390ea14ca993e1a0697dc02,
+        type: 3}
+      propertyPath: toRepair.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 990923604816412740, guid: a29b8e53e390ea14ca993e1a0697dc02,
+        type: 3}
+      propertyPath: toRepair.Array.data[3]
+      value: 
+      objectReference: {fileID: 977416445945516388}
+    - target: {fileID: 5115980409413086145, guid: a29b8e53e390ea14ca993e1a0697dc02,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6346731026423001638, guid: a29b8e53e390ea14ca993e1a0697dc02,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -167,6 +182,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8166111319378116668, guid: a29b8e53e390ea14ca993e1a0697dc02,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a29b8e53e390ea14ca993e1a0697dc02, type: 3}
 --- !u!4 &8782295328322319142 stripped
@@ -175,3 +195,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2446832491753750784}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &977416445945516388 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3198855615034740836, guid: a29b8e53e390ea14ca993e1a0697dc02,
+    type: 3}
+  m_PrefabInstance: {fileID: 2446832491753750784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899bfaf0a51f79c479014643c6c99552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
