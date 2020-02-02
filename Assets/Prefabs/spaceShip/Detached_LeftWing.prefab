@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: 9199878829948099782}
   - component: {fileID: -1928869828433691387}
   - component: {fileID: -3037886805647325602}
+  - component: {fileID: -5575433805513567557}
+  - component: {fileID: 6715123599019776493}
   m_Layer: 0
   m_Name: Detached_LeftWing
   m_TagString: Untagged
@@ -215,3 +217,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: 0
+--- !u!114 &-5575433805513567557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9208272001975309638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15e3fda7e462a84c82e83ead1ad7d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPart: 0
+--- !u!65 &6715123599019776493
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9208272001975309638}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.023933686, y: 0.039587103, z: 0.011826756}
+  m_Center: {x: -0.0021150145, y: -0.0031048285, z: 0.008793318}

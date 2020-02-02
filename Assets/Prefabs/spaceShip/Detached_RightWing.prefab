@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 4809387323681276483}
   - component: {fileID: -600596107230485599}
   - component: {fileID: 6833596206272004318}
+  - component: {fileID: -5205203198339446775}
+  - component: {fileID: 5131768709276425905}
   m_Layer: 0
   m_Name: Detached_RightWing
   m_TagString: Untagged
@@ -199,3 +201,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: 0
+--- !u!114 &-5205203198339446775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283366305808651281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15e3fda7e462a84c82e83ead1ad7d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPart: 1
+--- !u!65 &5131768709276425905
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283366305808651281}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.023933677, y: 0.04293161, z: 0.014509675}
+  m_Center: {x: 0.000112269954, y: 0.06890552, z: 0.0077806856}

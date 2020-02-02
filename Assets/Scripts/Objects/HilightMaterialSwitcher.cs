@@ -17,7 +17,7 @@ public class HilightMaterialSwitcher: MonoBehaviour
         
     }
 
-    private void OnHilightChanged(bool hilighted)
+    public void OnHilightChanged(bool hilighted)
     {
         renderer.sharedMaterial = hilighted ? hilightedMaterial : basicMaterial;
 

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3306381747052854470}
   - component: {fileID: 1796466958009624266}
   - component: {fileID: 4134323470838514689}
+  - component: {fileID: 2554167856436506664}
   m_Layer: 0
   m_Name: Attached_LeftWing
   m_TagString: Untagged
@@ -171,3 +172,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2554167856436506664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9208272001975309638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15e3fda7e462a84c82e83ead1ad7d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPart: 0

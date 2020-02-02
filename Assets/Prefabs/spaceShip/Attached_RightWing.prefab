@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4997862606112041826}
   - component: {fileID: -4489773096464488516}
   - component: {fileID: 1173591968260961564}
+  - component: {fileID: -6713626108496227871}
   m_Layer: 0
   m_Name: Attached_RightWing
   m_TagString: Untagged
@@ -156,3 +157,16 @@ MonoBehaviour:
   basicMaterial: {fileID: 2100000, guid: 13ffc073001a88c4593d8dafe7aff69e, type: 2}
   hilightedMaterial: {fileID: 2100000, guid: 4de9e923393b3df45942ad314b91e94e, type: 2}
   renderer: {fileID: 0}
+--- !u!114 &-6713626108496227871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283366305808651281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15e3fda7e462a84c82e83ead1ad7d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPart: 1

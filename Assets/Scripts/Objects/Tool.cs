@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Tool : MonoBehaviour
 {
-    public enum ToolType {None, Wrench, Hammer}
+    public enum ToolType {None, Wrench, Hammer, BlowPipe}
     public ToolType toolType;
     public Transform droppedVersionPrefab;
 }

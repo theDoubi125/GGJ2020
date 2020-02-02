@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 7417224909055332584}
   - component: {fileID: -1690380614545643567}
   - component: {fileID: -7730205084752337047}
+  - component: {fileID: 4098723422152836813}
   m_Layer: 0
   m_Name: Detached_Reactor_Twisted
   m_TagString: Untagged
@@ -56,7 +57,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6724452574401399709}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -215,5 +216,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toolType: 2
-  repairedPrefab: {fileID: 5269541010523510650, guid: aef47cf8611fb3744a8dadbf56d72cb1,
+  repairedPrefab: {fileID: 7027666844834069721, guid: e21fe41c205f841438f018ee30a5d0ad,
     type: 3}
+  twistedPrefab: {fileID: 7027666844834069721, guid: adbf93ac8ebcbb84f989a4992241809a,
+    type: 3}
+  unpaintedPrefab: {fileID: 7027666844834069721, guid: 8ff8170a18ccf844ead2bc669eaa947f,
+    type: 3}
+  damagedPrefab: {fileID: 7027666844834069721, guid: aad8088aca12a3b47a41f7d962300a66,
+    type: 3}
+  currentState: 2
+--- !u!114 &4098723422152836813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724452574401399709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15e3fda7e462a84c82e83ead1ad7d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPart: 2

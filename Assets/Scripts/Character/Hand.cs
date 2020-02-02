@@ -68,6 +68,17 @@ public class Hand : MonoBehaviour
             }
             else
             {
+                if(objectInRange != null)
+                {
+                    ShipSocket socket = objectInRange.GetComponent<ShipSocket>();
+                    ShipElement element = grabbedObject.GetComponent<ShipElement>();
+                    if(element != null && socket != null && element.shipPart == socket.shipPart)
+                    {
+                        socket.FillSocket(element);
+                    }
+
+
+                }
                 grabbedObject.OnReleased(this);
                 grabbedObject = null;
             }

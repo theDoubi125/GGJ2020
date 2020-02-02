@@ -21,9 +21,9 @@ public class WorkbenchZone : MonoBehaviour
     public void OnInteract(Interactable interactable, Hand hand, Tool.ToolType toolType)
     {
         Repairable repairable = interactable.GetComponent<Repairable>();
-        if(repairable != null && repairable.toolType == toolType)
+        if(repairable != null)
         {
-            repairable.Repair();
+            repairable.RepairWithTool(toolType);
         }
     }
 }

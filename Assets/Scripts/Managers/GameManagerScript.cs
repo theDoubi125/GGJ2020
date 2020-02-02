@@ -144,7 +144,8 @@ public class GameManagerScript : MonoBehaviour
         currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.Euler(0,90,0));
         currentShipScript = currentShip.GetComponent<Ship>();
 
-        brokenPartCount.text = currentShipScript.brokenPart.ToString();
+        if(brokenPartCount != null && currentShipScript != null)
+            brokenPartCount.text = currentShipScript.brokenPart.ToString();
 
         var initialYDoorPos = entryDoor.transform.position.y;
 
