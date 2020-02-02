@@ -17,13 +17,12 @@ public class DetachPart : MonoBehaviour
     private void OnInteraction(Interactable interactable, Hand hand, Tool.ToolType toolType)
     {
 
-        Instantiate(toSpawn, transform.position, transform.rotation);
-
-        gameObject.SetActive(false);
 
         if(toolType == Tool.ToolType.Wrench)
         {
+            gameObject.SetActive(false);
             Transform spawned = Instantiate(toSpawn, transform.position, transform.rotation);
+            spawned.localScale = transform.lossyScale;
             spawned.GetComponent<Repairable>().currentState = GetComponent<Repairable>().currentState;
             gameObject.SetActive(false);
             socket.SetActive(true);
