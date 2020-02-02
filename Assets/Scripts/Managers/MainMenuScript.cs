@@ -14,7 +14,10 @@ public class MainMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.anyKey)
+        {
+            LoadGameScene();
+        }
     }
 
     public void LoadGameScene()
