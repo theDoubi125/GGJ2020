@@ -18,5 +18,6 @@ public class ShipSocket : MonoBehaviour
         Destroy(shipElement.gameObject);
         toReactivate.SetActive(true);
         gameObject.SetActive(false);
+        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipConnectPiece);
     }
 }

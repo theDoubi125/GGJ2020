@@ -219,7 +219,7 @@ public class GameManagerScript : MonoBehaviour
 
         Sequence shipArrivingSeq = DOTween.Sequence();
         shipArrivingSeq.Append(currentShip.transform.DOMoveX(0, 1))
-        .Append(currentShip.transform.DOMoveY(1, 1));
+        .Append(currentShip.transform.DOMoveY(-0.5f, 1));
         yield return shipArrivingSeq.WaitForCompletion();
 
         shipIsArrived = true;
@@ -257,7 +257,13 @@ public class GameManagerScript : MonoBehaviour
         Destroy(currentShip);
     }
 
-    void FinishedRepair()
+    public void UpdateText()
+    {
+        if(brokenPartText != null && currentShipScript != null)
+            brokenPartText.text = "BROKEN PARTS REMAINING : " + currentShipScript.brokenPart;
+    }
+
+    public void FinishedRepair()
     {
         lapsTime.Add(repairTimer);
         //lapsUI[currentStopCount].text = lapsTime[currentStopCount].ToString("f3");
