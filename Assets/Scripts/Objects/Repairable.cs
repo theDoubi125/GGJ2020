@@ -65,17 +65,26 @@ public class Repairable : MonoBehaviour
             case Tool.ToolType.Hammer:
                 if(currentState == RepairState.Twisted)
                 {
-                    SpawnVersion(RepairState.Repaired);
+                    SpawnVersion(RepairState.Unpainted);
                     Instantiate(repairFXPrefab, transform.position, Quaternion.identity);
                 }
                 break;
             case Tool.ToolType.BlowPipe:
                 if(currentState == RepairState.Damaged)
                 {
-                    SpawnVersion(RepairState.Repaired);
+                    SpawnVersion(RepairState.Unpainted);
                     Instantiate(repairFXPrefab, transform.position, Quaternion.identity);
                 }
                 break;
+        }
+    }
+
+    public void Repaint()
+    {
+        Instantiate(repairFXPrefab, transform.position, Quaternion.identity);
+        if(currentState == RepairState.Unpainted)
+        {
+            SpawnVersion(RepairState.Repaired);
         }
     }
 }

@@ -9,6 +9,8 @@ public class Stickable : MonoBehaviour
     private FixedJoint fixedJoint;
     public void SetSticked(StickyZone stickyZone)
     {
+        if(fixedJoint != null)
+            Destroy(fixedJoint);
         fixedJoint = gameObject.AddComponent<FixedJoint>();
         fixedJoint.connectedBody = stickyZone.GetComponent<Rigidbody>();
         GetComponent<Grabbable>().grabbedDelegate += OnGrabbed;

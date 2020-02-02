@@ -19,6 +19,7 @@ public class DetachPart : MonoBehaviour
         if(toolType == Tool.ToolType.Wrench)
         {
             Transform spawned = Instantiate(toSpawn, transform.position, transform.rotation);
+            spawned.localScale = transform.lossyScale;
             spawned.GetComponent<Repairable>().currentState = GetComponent<Repairable>().currentState;
             gameObject.SetActive(false);
             socket.SetActive(true);
