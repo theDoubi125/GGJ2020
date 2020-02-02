@@ -51,11 +51,15 @@ MonoBehaviour:
   sfxSource: {fileID: 7643205206712945900}
   player1Source: {fileID: 7522248275068161846}
   player2Source: {fileID: 5487011244226972966}
-  player1Transform: {fileID: 0}
-  player2Transform: {fileID: 0}
+  player1RigidBody: {fileID: 0}
+  player2RigidBody: {fileID: 0}
   doorsOpen: {fileID: 8300000, guid: d28585b1d9f5c7b4eac2eb9159e0b1b5, type: 3}
   doorsClose: {fileID: 8300000, guid: 0ea405b864103a241b8d0f3d621e5470, type: 3}
   forkliftMoving: {fileID: 8300000, guid: 8c9543b9a34caa34eaf7c1812c621763, type: 3}
+  gameLose: {fileID: 8300000, guid: 148c536bc0356a24cad9adae4c1d41a2, type: 3}
+  gameWin: {fileID: 8300000, guid: 8575b72bb47cbd5489aa0ee6af09ebaf, type: 3}
+  menuSelect: {fileID: 8300000, guid: 9913b78c5d0d8f1468ee4b4e36a69f56, type: 3}
+  menuStart: {fileID: 8300000, guid: bbb9bc50016e99949802b47b1cefffe0, type: 3}
   objectFallsHeavy:
   - {fileID: 8300000, guid: b217a23ec166b9741b800f728e87dc33, type: 3}
   - {fileID: 8300000, guid: 32100ae1496f0264b873721e73913020, type: 3}
@@ -288,7 +292,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
@@ -384,7 +388,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1
   Loop: 0

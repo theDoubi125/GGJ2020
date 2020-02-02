@@ -9,6 +9,10 @@ public class SoundManagerScript : MonoBehaviour
         DoorsClose,
         DoorsOpen,
         ForkliftMoving,
+        GameLose,
+        GameWin,
+        MenuSelect,
+        MenuStart,
         ObjectFallsHeavy, // Multiple
         ObjectFallsLight, // Multiple
         ObjectPickUp,
@@ -46,7 +50,16 @@ public class SoundManagerScript : MonoBehaviour
     public AudioClip doorsOpen;
     public AudioClip doorsClose;
 
+    [Header("Forklift")]
     public AudioClip forkliftMoving;
+
+    [Header("Game")]
+    public AudioClip gameLose;
+    public AudioClip gameWin;
+
+    [Header("Menu")]
+    public AudioClip menuSelect;
+    public AudioClip menuStart;
 
     [Header("Objects")]
     public List<AudioClip> objectFallsHeavy;
@@ -93,7 +106,7 @@ public class SoundManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        musicSource = GetComponent<AudioSource>();
+        musicSource.loop = true;
         StartCoroutine(DelayPlayMusic());
 
         player1Source.loop = true;
@@ -130,6 +143,18 @@ public class SoundManagerScript : MonoBehaviour
                 break;
             case AudioClips.ForkliftMoving:
                 clip = forkliftMoving;
+                break;
+            case AudioClips.GameLose:
+                clip = gameLose;
+                break;
+            case AudioClips.GameWin:
+                clip = gameWin;
+                break;
+            case AudioClips.MenuSelect:
+                clip = menuSelect;
+                break;
+            case AudioClips.MenuStart:
+                clip = menuStart;
                 break;
             case AudioClips.ObjectFallsHeavy:
                 clip = objectFallsHeavy[Random.Range(0, objectFallsHeavy.Count)];
