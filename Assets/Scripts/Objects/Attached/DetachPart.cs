@@ -6,6 +6,7 @@ public class DetachPart : MonoBehaviour
 {
     private Interactable interactable;
     public Transform toSpawn;
+    public GameObject socket;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class DetachPart : MonoBehaviour
             Transform spawned = Instantiate(toSpawn, transform.position, transform.rotation);
             spawned.GetComponent<Repairable>().currentState = GetComponent<Repairable>().currentState;
             gameObject.SetActive(false);
+            socket.SetActive(true);
         }
     }
     
