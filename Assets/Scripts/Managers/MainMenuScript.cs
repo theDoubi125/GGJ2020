@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
+using TMPro;
 
 public class MainMenuScript : MonoBehaviour
 {
+    public TextMeshProUGUI title;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        DOTween.Init();
+        StartCoroutine(fading());
     }
 
     // Update is called once per frame
@@ -19,6 +24,7 @@ public class MainMenuScript : MonoBehaviour
             SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.MenuStart);
             StartCoroutine(StartMethod(0.5f));
         }
+
     }
 
     private IEnumerator StartMethod(float delay)
@@ -27,5 +33,18 @@ public class MainMenuScript : MonoBehaviour
         SoundManagerScript.instance.StartPlaySounds();
         SceneManager.LoadScene(1);
 
+    }
+
+    IEnumerator fading()
+    {
+
+        var tween1 = title.DOFade(1, 1);
+
+        yield return tween1.WaitForCompletion();
+
+        var tween = title.DOFade(0, 1);
+
+        yield return tween.WaitForCompletion();
+        StartCoroutine(fading());
     }
 }

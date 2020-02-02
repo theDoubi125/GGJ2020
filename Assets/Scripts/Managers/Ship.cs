@@ -25,13 +25,12 @@ public class Ship : MonoBehaviour
     private void Awake()
     {
         brokenPart = 0;
-        partTypeToSetup.Add(PartType.Body);
-        partTypeToSetup.Add(PartType.LeftWing);
-        partTypeToSetup.Add(PartType.RightWing);
-        partTypeToSetup.Add(PartType.Reactor);
-        partTypeToSetup.Add(PartType.Cockpit);
+        //partTypeToSetup.Add(PartType.Body);
+        //partTypeToSetup.Add(PartType.LeftWing);
+        //partTypeToSetup.Add(PartType.RightWing);
+        //partTypeToSetup.Add(PartType.Reactor);
+        //partTypeToSetup.Add(PartType.Cockpit);
         GenerateBrokenSpaceshipNV(6, 3);
-        //GenerateBrokenSpaceship(5, 3);
     }
 
     // Start is called before the first frame update
@@ -77,15 +76,16 @@ public class Ship : MonoBehaviour
             }
         }
 
-        if (twistedPart + brokenPart + unpaintedPart < minBrokenPart)
+        var sum = twistedPart + brokenPart + unpaintedPart;
+
+        if (sum < minBrokenPart)
         {
-            Debug.Log("NOT ENOUGH BROKE");
-            var sum = twistedPart + brokenPart + unpaintedPart;
+            
             foreach (var child in children)
             {
-                if (child.currentState != RepairState.Repaired)
+                if (child.currentState == RepairState.Repaired)
                 {
-                    Debug.Log("ADD BROKEN PART");
+     
                     child.currentState = (RepairState)Random.Range(1, 4);
                     sum++;
                     if (sum >= minBrokenPart)
@@ -96,8 +96,8 @@ public class Ship : MonoBehaviour
             }
         }
 
-        //brokenPart = twistedPart + brokenPart + unpaintedPart;
-        Debug.Log("BROKEN PART : " + brokenPart);
+        brokenPart = sum;
+        
     }
 
     void GenerateBrokenSpaceship(int totalPart, int maxBrokenPart)
