@@ -181,11 +181,7 @@ public class GameManagerScript : MonoBehaviour
         SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipArriving);
 
         currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.Euler(-90,180,-90));
-        var children = currentShip.GetComponentsInChildren<Repairable>();
-        foreach(var child in children)
-        {
-            child.currentState = (RepairState)Random.Range(0, 4);
-        }
+       
 
 
         currentShipScript = currentShip.GetComponent<Ship>();

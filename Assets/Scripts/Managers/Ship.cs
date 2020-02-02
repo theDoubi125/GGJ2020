@@ -79,11 +79,13 @@ public class Ship : MonoBehaviour
 
         if (twistedPart + brokenPart + unpaintedPart < minBrokenPart)
         {
+            Debug.Log("NOT ENOUGH BROKE");
             var sum = twistedPart + brokenPart + unpaintedPart;
             foreach (var child in children)
             {
                 if (child.currentState != RepairState.Repaired)
                 {
+                    Debug.Log("ADD BROKEN PART");
                     child.currentState = (RepairState)Random.Range(1, 4);
                     sum++;
                     if (sum >= minBrokenPart)
@@ -93,6 +95,9 @@ public class Ship : MonoBehaviour
                 }
             }
         }
+
+        brokenPart = twistedPart + brokenPart + unpaintedPart;
+        Debug.Log("BROKEN PART : " + brokenPart);
     }
 
     void GenerateBrokenSpaceship(int totalPart, int maxBrokenPart)
