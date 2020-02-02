@@ -50,7 +50,7 @@ public class Ship : MonoBehaviour
         //Generate 5 part 
         for(var i = 0; i < totalPart; i++)
         {
-            var index = Random.Range(0, partTypeToSetup.Capacity - 1);
+            //var index = Random.Range(0, partTypeToSetup.Capacity - 1);
             var isBroken = false;
             //remove the random
             var type = partTypeToSetup[i];

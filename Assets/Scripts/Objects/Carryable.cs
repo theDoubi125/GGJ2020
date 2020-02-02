@@ -36,6 +36,7 @@ public class Carryable : MonoBehaviour
     {
         Destroy(fixedJoint);
         grabAnimationOffset = transform.position - attachedHand.transform.position;
+        GetComponent<Rigidbody>().WakeUp();
     }
 
     private void OnReleased()

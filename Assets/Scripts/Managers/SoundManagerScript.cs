@@ -9,6 +9,10 @@ public class SoundManagerScript : MonoBehaviour
         DoorsClose,
         DoorsOpen,
         ForkliftMoving,
+        GameLose,
+        GameWin,
+        MenuSelect,
+        MenuStart,
         ObjectFallsHeavy, // Multiple
         ObjectFallsLight, // Multiple
         ObjectPickUp,
@@ -24,6 +28,7 @@ public class SoundManagerScript : MonoBehaviour
         ShipConnectPiece,
         ShipCrashDoor,
         ShipLeaving,
+        ShipDriveBy,
         ShipWarning, // Multiple
         ToolBlowtorch,
         ToolGet
@@ -46,7 +51,16 @@ public class SoundManagerScript : MonoBehaviour
     public AudioClip doorsOpen;
     public AudioClip doorsClose;
 
+    [Header("Forklift")]
     public AudioClip forkliftMoving;
+
+    [Header("Game")]
+    public AudioClip gameLose;
+    public AudioClip gameWin;
+
+    [Header("Menu")]
+    public AudioClip menuSelect;
+    public AudioClip menuStart;
 
     [Header("Objects")]
     public List<AudioClip> objectFallsHeavy;
@@ -70,6 +84,7 @@ public class SoundManagerScript : MonoBehaviour
     public AudioClip shipLeaving;
     public AudioClip shipCrashDoor;
     public List<AudioClip> shipWarning;
+    public List<AudioClip> shipDriveBy;
 
     [Header("Tool")]
     public AudioClip toolBlowtorch;
@@ -93,7 +108,7 @@ public class SoundManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        musicSource = GetComponent<AudioSource>();
+        musicSource.loop = true;
         StartCoroutine(DelayPlayMusic());
 
         player1Source.loop = true;
@@ -130,6 +145,18 @@ public class SoundManagerScript : MonoBehaviour
                 break;
             case AudioClips.ForkliftMoving:
                 clip = forkliftMoving;
+                break;
+            case AudioClips.GameLose:
+                clip = gameLose;
+                break;
+            case AudioClips.GameWin:
+                clip = gameWin;
+                break;
+            case AudioClips.MenuSelect:
+                clip = menuSelect;
+                break;
+            case AudioClips.MenuStart:
+                clip = menuStart;
                 break;
             case AudioClips.ObjectFallsHeavy:
                 clip = objectFallsHeavy[Random.Range(0, objectFallsHeavy.Count)];
@@ -170,6 +197,9 @@ public class SoundManagerScript : MonoBehaviour
                 break;
             case AudioClips.ShipWarning:
                 clip = shipWarning[Random.Range(0, shipWarning.Count)];
+                break;
+            case AudioClips.ShipDriveBy:
+                clip = shipDriveBy[Random.Range(0, shipDriveBy.Count)];
                 break;
             case AudioClips.ToolBlowtorch:
                 clip = toolBlowtorch;

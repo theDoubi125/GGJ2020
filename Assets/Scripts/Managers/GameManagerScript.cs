@@ -22,6 +22,8 @@ public class GameManagerScript : MonoBehaviour
     public GameState currentState;
 
     [Header("Tweakable values")]
+    public int totalStop;
+    int currentStopCount;
     public float initialWaitTime;
     public bool repairFinish = false;
     public bool shipIsArrived = false;
@@ -32,6 +34,8 @@ public class GameManagerScript : MonoBehaviour
     public Transform shipRepairPos;
     public GameObject entryDoor;
     public GameObject exitDoor;
+    public List<float> lapsTime;
+    public List<TextMeshProUGUI> lapsUI;
 
     [Header("UI")]
     public TextMeshProUGUI timerUI;
@@ -40,12 +44,16 @@ public class GameManagerScript : MonoBehaviour
     public Animator animatorUI;
 
     private float waitTimer;
-    private float repairTimer;
     private float leavingTimer;
+    private float repairTimer;
+    private float totalRunTime;
     private GameObject currentShip;
     private Ship currentShipScript;
 
     private bool shipWarningPlayed = false;
+    private float minDelayBetweenDriveBy = 1.0f;
+    private float maxDelayBetweenDriveBy = 5.0f;
+    private float driveByTimer;
 
 
     // Start is called before the first frame update
@@ -57,31 +65,44 @@ public class GameManagerScript : MonoBehaviour
         {
             instance = this;
         }
+        lapsTime = new List<float>(3);
 
         waitTimer = 0.0f;
         currentState = GameState.Waiting;
         timerUI.text = "PREPARE THE PIT !";
-  
+        driveByTimer = Random.Range(minDelayBetweenDriveBy, maxDelayBetweenDriveBy);
     }
 
     // Update is called once per frame
     void Update()
     {
+        driveByTimer -= Time.deltaTime;
+        if(driveByTimer <= 0.0f)
+        {
+            driveByTimer = Random.Range(minDelayBetweenDriveBy, maxDelayBetweenDriveBy);
+            //SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipDriveBy);
+        }
+
         switch (currentState)
         {
             case GameState.Waiting:
                 if (waitTimer < 5) {
                     waitTimer += Time.deltaTime;
-                    if(waitTimer >= 2.5 && !shipWarningPlayed)
-                    {
+                    if(waitTimer >= 2.5 && !shipWarningPlayed) {
                         SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipWarning);
                         shipWarningPlayed = true;
                     }
                 } else {
-                    shipWarningPlayed = false;
-                    StartCoroutine(ArrivingShip());
-                    timerUI.text = "BE PREPARED IT'S COMING !";
-                    currentState = GameState.Arriving;
+                    if (currentStopCount < totalStop) {
+                        shipWarningPlayed = false;
+                        StartCoroutine(ArrivingShip());
+                        timerUI.text = "BE PREPARED IT'S COMING !";
+                        currentState = GameState.Arriving;
+                    } else {
+                        timerUI.text = "END OF THE RACE ! <br>TOTAL TIME :" + totalRunTime.ToString("f3");
+
+                    }
+
                 }
                 break;
             case GameState.Arriving:
@@ -94,10 +115,12 @@ public class GameManagerScript : MonoBehaviour
                 if(!repairFinish)
                 {
                     repairTimer += Time.deltaTime;
-                    timerUI.text = repairTimer.ToString();
+                    string fmt = "00.###";
+                    timerUI.text = repairTimer.ToString(fmt);
                 }
                 else
                 {
+                    lapsTime[currentStopCount] = repairTimer;
                     StartCoroutine(LeavingShip());
                     leavingTimer = 0f;
                     currentState = GameState.Leaving;
@@ -110,6 +133,8 @@ public class GameManagerScript : MonoBehaviour
                 }
                 else
                 {
+                    
+                    currentStopCount++;
                     ResetSettings();
                     currentState = GameState.Waiting;
                 }
@@ -126,11 +151,6 @@ public class GameManagerScript : MonoBehaviour
             Repair();
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            
-        }
-
     }
 
 
@@ -139,7 +159,7 @@ public class GameManagerScript : MonoBehaviour
 
         repairTimer = 0.0f;
 
-        //SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipArriving);
+        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipArriving);
 
         currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.Euler(0,90,0));
         currentShipScript = currentShip.GetComponent<Ship>();
@@ -214,6 +234,8 @@ public class GameManagerScript : MonoBehaviour
         shipIsArrived = false;
         waitTimer = 0f;
 
+        totalRunTime += repairTimer;
+        driveByTimer = Random.Range(minDelayBetweenDriveBy, maxDelayBetweenDriveBy);
     }
 
    

@@ -17,5 +17,6 @@ public class ShipSocket : MonoBehaviour
         toReactivate.GetComponent<Repairable>().SpawnVersion(shipElement.GetComponent<Repairable>().currentState);
         Destroy(shipElement.gameObject);
         toReactivate.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
