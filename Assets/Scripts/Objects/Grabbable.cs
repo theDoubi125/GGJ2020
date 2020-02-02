@@ -21,9 +21,10 @@ public class Grabbable : MonoBehaviour
         interactable.interactDelegate += OnInteraction;
     }
 
-    private void OnInteraction(Hand hand)
+    private void OnInteraction(Interactable interactable, Hand hand, Tool.ToolType toolType)
     {
-        hand.GrabObject(this);
+        if(toolType == Tool.ToolType.None)
+            hand.GrabObject(this);
     }
 
     private void Update()

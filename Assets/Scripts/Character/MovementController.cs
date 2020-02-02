@@ -7,6 +7,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Rigidbody))]
 public class MovementController : MonoBehaviour
 {
+    public int playerIndex = 1;
     public Vector2 input;
     public float movementForce;
     public float turnSpeed;
@@ -22,8 +23,8 @@ public class MovementController : MonoBehaviour
 
     void Update()
     {
-        input.x = Input.GetAxis("Horizontal");
-        input.y = Input.GetAxis("Vertical");
+        input.x = Input.GetAxis("Horizontal" + playerIndex);
+        input.y = Input.GetAxis("Vertical" + playerIndex);
         Vector3 inputDirection = new Vector3(input.x, 0, input.y);
         if(inputDirection.magnitude > 1)
             inputDirection = inputDirection.normalized;

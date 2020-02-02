@@ -6,7 +6,7 @@ using System;
 public class Interactable : MonoBehaviour
 {
     public Action<bool> hilightChangedDelegate; 
-    public Action<Hand> interactDelegate;
+    public Action<Interactable, Hand, Tool.ToolType> interactDelegate;
     public Tool.ToolType neededTool;
     public bool isSmall = false;
 
@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour
 
     public void OnInteractionBy(Hand hand, Tool.ToolType toolType)
     {
-        if(interactDelegate != null && toolType == neededTool)
-            interactDelegate(hand);
+        if(interactDelegate != null)
+            interactDelegate(this, hand, toolType);
     }
 }

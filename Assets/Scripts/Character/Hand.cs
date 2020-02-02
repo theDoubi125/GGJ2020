@@ -13,6 +13,7 @@ public class Hand : MonoBehaviour
     private Interactable smallInteractableInRange;
 
     public ToolHandler toolHandler;
+    public int playerIndex = 1;
 
     void Update()
     {
@@ -56,7 +57,7 @@ public class Hand : MonoBehaviour
             objectInRange = null;
         }
 
-        if(Input.GetButtonDown("Interact"))
+        if(Input.GetButtonDown("Interact" + playerIndex))
         {
             if(grabbedObject == null)
             {
@@ -67,12 +68,23 @@ public class Hand : MonoBehaviour
             }
             else
             {
+                if(objectInRange != null)
+                {
+                    ShipSocket socket = objectInRange.GetComponent<ShipSocket>();
+                    ShipElement element = grabbedObject.GetComponent<ShipElement>();
+                    if(element != null && socket != null && element.shipPart == socket.shipPart)
+                    {
+                        socket.FillSocket(element);
+                    }
+
+
+                }
                 grabbedObject.OnReleased(this);
                 grabbedObject = null;
             }
         }
 
-        if(Input.GetButtonDown("Drop"))
+        if(Input.GetButtonDown("Drop" + playerIndex))
         {
             if(toolHandler.hasTool)
             {

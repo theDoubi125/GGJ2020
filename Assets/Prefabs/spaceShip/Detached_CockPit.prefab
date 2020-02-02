@@ -18,6 +18,9 @@ GameObject:
   - component: {fileID: 7720825768837358895}
   - component: {fileID: -331549359007819052}
   - component: {fileID: 3712611543546094807}
+  - component: {fileID: 2457068394277944320}
+  - component: {fileID: 2694918114500384215}
+  - component: {fileID: 2234489447896730861}
   m_Layer: 0
   m_Name: Detached_CockPit
   m_TagString: Untagged
@@ -115,6 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10656e1ed0675f4c9dbd161915a423d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neededTool: 0
+  isSmall: 0
 --- !u!114 &7907129945523928553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c95b115c8cc6e4448b0b5afb1c65bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carryHeight: 1
+  carryHeight: 3
   carryAnimationDuration: 0.5
 --- !u!54 &-331549359007819052
 Rigidbody:
@@ -184,4 +189,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c460e8aece47e42be2078ac3a321f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  massConfig: {fileID: 0}
+  massConfig: {fileID: 11400000, guid: be34e39bedb995f47b0f825f7e9d006a, type: 2}
+--- !u!114 &2457068394277944320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746102785449752895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abbf3a83b88bc34398aebab5207d1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicMaterial: {fileID: 2100000, guid: 13ffc073001a88c4593d8dafe7aff69e, type: 2}
+  hilightedMaterial: {fileID: 2100000, guid: 4de9e923393b3df45942ad314b91e94e, type: 2}
+  renderer: {fileID: 0}
+--- !u!114 &2694918114500384215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746102785449752895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291078cff05689448b9522e175858a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 0
+--- !u!114 &2234489447896730861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746102785449752895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15e3fda7e462a84c82e83ead1ad7d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPart: 3

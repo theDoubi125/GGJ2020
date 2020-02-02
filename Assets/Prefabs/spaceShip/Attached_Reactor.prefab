@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5210372941250285413}
   - component: {fileID: 5535154135683997633}
   - component: {fileID: 1619179265991497053}
+  - component: {fileID: 6603840781822099960}
+  - component: {fileID: 344172974037993704}
   m_Layer: 0
   m_Name: Attached_Reactor
   m_TagString: Untagged
@@ -51,7 +53,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6724452574401399709}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -112,6 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10656e1ed0675f4c9dbd161915a423d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neededTool: 1
+  isSmall: 0
 --- !u!114 &5535154135683997633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,3 +144,38 @@ MonoBehaviour:
   basicMaterial: {fileID: 2100000, guid: 13ffc073001a88c4593d8dafe7aff69e, type: 2}
   hilightedMaterial: {fileID: 2100000, guid: 4de9e923393b3df45942ad314b91e94e, type: 2}
   renderer: {fileID: 0}
+--- !u!114 &6603840781822099960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724452574401399709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15e3fda7e462a84c82e83ead1ad7d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPart: 2
+--- !u!114 &344172974037993704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724452574401399709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899bfaf0a51f79c479014643c6c99552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolType: 0
+  repairedPrefab: {fileID: 7027666844834069721, guid: e21fe41c205f841438f018ee30a5d0ad,
+    type: 3}
+  twistedPrefab: {fileID: 7027666844834069721, guid: adbf93ac8ebcbb84f989a4992241809a,
+    type: 3}
+  unpaintedPrefab: {fileID: 7027666844834069721, guid: 8ff8170a18ccf844ead2bc669eaa947f,
+    type: 3}
+  damagedPrefab: {fileID: 7027666844834069721, guid: aad8088aca12a3b47a41f7d962300a66,
+    type: 3}
+  currentState: 1

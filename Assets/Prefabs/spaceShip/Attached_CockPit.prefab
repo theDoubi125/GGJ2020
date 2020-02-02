@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 7079871566750534072}
   - component: {fileID: 9125981314067739051}
   - component: {fileID: 7907129945523928553}
+  - component: {fileID: -1767008918192257042}
   m_Layer: 0
-  m_Name: CockPit
+  m_Name: Attached_CockPit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,6 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10656e1ed0675f4c9dbd161915a423d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neededTool: 1
+  isSmall: 0
 --- !u!114 &9125981314067739051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e7f59f335cf63749b23005ff5977424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toSpawn: {fileID: 7423243956978350885, guid: 1aa09286984ad86458fa27f33840e528, type: 3}
+  toSpawn: {fileID: 5269541010523510650, guid: 9f0617150fec16849b750bb914540b02, type: 3}
 --- !u!114 &7907129945523928553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,3 +143,16 @@ MonoBehaviour:
   basicMaterial: {fileID: 2100000, guid: 13ffc073001a88c4593d8dafe7aff69e, type: 2}
   hilightedMaterial: {fileID: 2100000, guid: 4de9e923393b3df45942ad314b91e94e, type: 2}
   renderer: {fileID: 0}
+--- !u!114 &-1767008918192257042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746102785449752895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15e3fda7e462a84c82e83ead1ad7d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPart: 3
