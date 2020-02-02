@@ -113,17 +113,27 @@ public class SoundManagerScript : MonoBehaviour
 
         player1Source.loop = true;
         player1Source.clip = playerRolling;
-        player1Source.Play();
 
         player2Source.loop = true;
         player2Source.clip = playerRolling;
-        player2Source.Play();
     }
 
     void Update()
     {
-        player1Source.volume = Mathf.Max(0.1f, 0.02f * player1RigidBody.velocity.magnitude);
-        player2Source.volume = Mathf.Max(0.1f, 0.02f * player1RigidBody.velocity.magnitude);
+        if (player1RigidBody != null)
+        {
+            player1Source.volume = Mathf.Max(0.1f, 0.02f * player1RigidBody.velocity.magnitude);
+        }
+        if (player2RigidBody != null)
+        {
+            player2Source.volume = Mathf.Max(0.1f, 0.02f * player1RigidBody.velocity.magnitude);
+        }
+    }
+
+    public void StartPlaySounds()
+    {
+        player1Source.Play();
+        player2Source.Play();
     }
 
     IEnumerator DelayPlayMusic()
