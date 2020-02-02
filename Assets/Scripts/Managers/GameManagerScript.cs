@@ -139,7 +139,7 @@ public class GameManagerScript : MonoBehaviour
 
         repairTimer = 0.0f;
 
-        //SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipArriving);
+        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipArriving);
 
         currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.Euler(0,90,0));
         currentShipScript = currentShip.GetComponent<Ship>();
