@@ -5,6 +5,8 @@ using UnityEngine.Events;
 using DG.Tweening;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.PostProcessing;
+
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -56,6 +58,9 @@ public class GameManagerScript : MonoBehaviour
     private float maxDelayBetweenDriveBy = 5.0f;
     private float driveByTimer;
 
+    DepthOfField dof;
+    bool restartPossible = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -79,9 +84,17 @@ public class GameManagerScript : MonoBehaviour
 
     }
 
+    string FormatTimeString(float timeValue)
+    {
+        string seconds = (timeValue % 60).ToString("00");
+        string milliseconds = ((timeValue % 1) * 1000).ToString("000");
+        return string.Format("{0}\"{1}", seconds, milliseconds);
+    }
+
     // Update is called once per frame
     void Update()
     {
+
         driveByTimer -= Time.deltaTime;
         if(driveByTimer <= 0.0f)
         {
@@ -127,8 +140,7 @@ public class GameManagerScript : MonoBehaviour
                 if(!repairFinish)
                 {
                     repairTimer += Time.deltaTime;
-                    string fmt = "00.###";
-                    timerUI.text = repairTimer.ToString(fmt);
+                    timerUI.text = FormatTimeString(repairTimer);
                 }
                 else
                 {
@@ -151,12 +163,12 @@ public class GameManagerScript : MonoBehaviour
 
                     if(currentStopCount >= 3 )
                     {
-                        textUI.text = "END OF THE RACE! <br>TOTAL TIME :" + totalRunTime.ToString("f3");
-                        EndGameCheck();
+                        textUI.text = "END OF THE RACE! <br>TOTAL TIME :" + FormatTimeString(totalRunTime);
+                        StartCoroutine(EndGameCheck());
                     }
                     else
                     {
-                        textUI.text = "PREPARE THE PIT FOR THE NEXT STOP !";
+                        textUI.text = "PREPARE THE PIT FOR THE NEXT STOP!";
                     }
 
                     currentState = GameState.Waiting;
@@ -166,14 +178,19 @@ public class GameManagerScript : MonoBehaviour
                 break;
         }
 
-   
-        if (Input.GetKeyDown(KeyCode.R))
+
+        if (Input.anyKeyDown)
         {
-            if(animatorUI != null)
+            if(restartPossible) {
+                RestartGame();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (animatorUI != null)
                 animatorUI.SetTrigger("Happy");
             Repair();
         }
-
     }
         
 
@@ -240,10 +257,19 @@ public class GameManagerScript : MonoBehaviour
         Destroy(currentShip);
     }
 
-    void FinishedRepair()
+    public void UpdateText()
+    {
+        if(brokenPartText != null && currentShipScript != null)
+            brokenPartText.text = "BROKEN PARTS REMAINING : " + currentShipScript.brokenPart;
+    }
+
+    public void FinishedRepair()
     {
         lapsTime.Add(repairTimer);
-        lapsUI[currentStopCount].text = lapsTime[currentStopCount].ToString("f3");
+        //lapsUI[currentStopCount].text = lapsTime[currentStopCount].ToString("f3");
+        string fmt = "00\"###";
+        lapsUI[currentStopCount].text = FormatTimeString(lapsTime[currentStopCount]);
+
         StartCoroutine(LeavingShip());
         leavingTimer = 0f;
         currentState = GameState.Leaving;
@@ -255,13 +281,13 @@ public class GameManagerScript : MonoBehaviour
         if(currentShipScript.brokenPart > 0)
         {
             if(brokenPartText.text != null)
-                brokenPartText.text = "BROKEN PARTS REMAINING : " + currentShipScript.brokenPart;
+                brokenPartText.text = "BROKEN PARTS REMAINING: " + currentShipScript.brokenPart;
             //brokenPartCount.text = currentShipScript.brokenPart.ToString();
         }
         else
         {
             if(brokenPartText != null)
-                brokenPartText.text = "SHIP READY TO LEAVE !";
+                brokenPartText.text = "SHIP READY TO LEAVE!";
             //brokenPartCount.text = "";
         }
 
@@ -286,25 +312,36 @@ public class GameManagerScript : MonoBehaviour
         driveByTimer = Random.Range(minDelayBetweenDriveBy, maxDelayBetweenDriveBy);
     }
 
-    void FormatTime(float value)
+    IEnumerator EndGameCheck()
     {
-       // var afterDot = 
-    }
+        float timeDifference = Mathf.Abs(totalRunTime - maxTimeToBeat);
+        PostProcessVolume activeVolume = Camera.main.GetComponent<PostProcessVolume>();
+        activeVolume.profile.TryGetSettings(out dof);
 
-    void EndGameCheck()
-    {
-        if(totalRunTime > maxTimeToBeat)
+        DOTween.To(() => dof.focusDistance.value, x => dof.focusDistance.value = x, 0.1f, 1.0f);
+        DOTween.To(() => textUI.fontSize, x => textUI.fontSize = x, 80, 2.0f);
+        var tween = textUI.transform.DOMoveY(750, 2.0f);
+
+        if (totalRunTime > maxTimeToBeat)
         {
-            textUI.text = "YOU FINISHED 2ND OF THE RACE ! THE FIRST BEAT YOU WITH AN ADVANCE OF " + (totalRunTime - maxTimeToBeat)  + " SECONDS";
+            textUI.text = "YOU FINISHED 2ND! THE FIRST BEAT YOU WITH AN ADVANCE OF " + FormatTimeString(timeDifference) + " SECONDS!";
         }
         else
         {
-            textUI.text = "YOU HAVE WIN THE RACE ! WITH AN ADVANCE OF " + ( maxTimeToBeat - totalRunTime) + " SECONDS";
+            textUI.text = "YOU WON THE RACE! THE SECOND WAS " + FormatTimeString(timeDifference) + " SECONDS BEHIND!";
         }
+
+        yield return new WaitForSeconds(3.0f);
+
+        textUI.text = "PRESS ANY KEY/BUTTON TO RESTART";
+
+        restartPossible = true;
     }
+
 
     void RestartGame()
     {
+        dof.focusDistance.value = 10f;
         SceneManager.LoadScene(1);
     }
 }

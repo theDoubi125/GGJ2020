@@ -97,8 +97,7 @@ public class Ship : MonoBehaviour
         }
 
         brokenPart = sum;
-    
-
+        
     }
 
     void GenerateBrokenSpaceship(int totalPart, int maxBrokenPart)
