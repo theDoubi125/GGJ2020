@@ -51,6 +51,9 @@ public class GameManagerScript : MonoBehaviour
     private Ship currentShipScript;
 
     private bool shipWarningPlayed = false;
+    private float minDelayBetweenDriveBy = 1.0f;
+    private float maxDelayBetweenDriveBy = 5.0f;
+    private float driveByTimer;
 
 
     // Start is called before the first frame update
@@ -67,12 +70,19 @@ public class GameManagerScript : MonoBehaviour
         waitTimer = 0.0f;
         currentState = GameState.Waiting;
         timerUI.text = "PREPARE THE PIT !";
-  
+        driveByTimer = Random.Range(minDelayBetweenDriveBy, maxDelayBetweenDriveBy);
     }
 
     // Update is called once per frame
     void Update()
     {
+        driveByTimer -= Time.deltaTime;
+        if(driveByTimer <= 0.0f)
+        {
+            driveByTimer = Random.Range(minDelayBetweenDriveBy, maxDelayBetweenDriveBy);
+            //SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipDriveBy);
+        }
+
         switch (currentState)
         {
             case GameState.Waiting:
@@ -225,7 +235,7 @@ public class GameManagerScript : MonoBehaviour
         waitTimer = 0f;
 
         totalRunTime += repairTimer;
-
+        driveByTimer = Random.Range(minDelayBetweenDriveBy, maxDelayBetweenDriveBy);
     }
 
    

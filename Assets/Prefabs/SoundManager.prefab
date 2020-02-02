@@ -87,6 +87,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d105df728bfc50946ac87022fa792f93, type: 3}
   - {fileID: 8300000, guid: f739c67f73865ff4f8543f2f0e589e3f, type: 3}
   - {fileID: 8300000, guid: e381639acfdcaf346bba2300e40bd764, type: 3}
+  shipDriveBy:
+  - {fileID: 8300000, guid: fc489fbfde4fcfc4795833109d8c3667, type: 3}
+  - {fileID: 8300000, guid: ba1e9f52f70e4e048876369e64279bcc, type: 3}
+  - {fileID: 8300000, guid: 4f4959dcf88de0441842ef517155faf3, type: 3}
   toolBlowtorch: {fileID: 8300000, guid: eace3c4cee62ad144a51da4906930bbd, type: 3}
   toolGet: {fileID: 8300000, guid: 3cb49c4a69543d244a873f1ca50c5bb5, type: 3}
 --- !u!82 &3879375176966200036
