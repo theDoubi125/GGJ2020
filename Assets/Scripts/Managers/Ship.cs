@@ -96,7 +96,7 @@ public class Ship : MonoBehaviour
             }
         }
 
-        brokenPart = twistedPart + brokenPart + unpaintedPart;
+        //brokenPart = twistedPart + brokenPart + unpaintedPart;
         Debug.Log("BROKEN PART : " + brokenPart);
     }
 
