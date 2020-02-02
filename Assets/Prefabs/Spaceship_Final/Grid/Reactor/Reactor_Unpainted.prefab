@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8531711369285338740}
   - component: {fileID: 4888281515266505457}
   m_Layer: 0
-  m_Name: Grid_Unpainted
+  m_Name: Reactor_Unpainted
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2966539607108495261}
-  m_Mesh: {fileID: 9127120572191758296, guid: fd74e1d313e54cc42ac939cb3e96c912, type: 3}
+  m_Mesh: {fileID: 5041565236075717657, guid: fd74e1d313e54cc42ac939cb3e96c912, type: 3}
 --- !u!23 &8461391587969626492
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 009b4e9eab6c1214f9b23d563c9f75f7, type: 2}
-  - {fileID: 2100000, guid: a65df5a200fdb6d4bb13a957af6727dc, type: 2}
+  - {fileID: 2100000, guid: 13ffc073001a88c4593d8dafe7aff69e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

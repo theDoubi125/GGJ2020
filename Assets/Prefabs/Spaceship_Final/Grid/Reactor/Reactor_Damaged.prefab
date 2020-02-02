@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4884608065845610575}
   - component: {fileID: 3148470829749940026}
   - component: {fileID: 8461391587969626492}
-  - component: {fileID: -8531711369285338740}
-  - component: {fileID: 4888281515266505457}
+  - component: {fileID: -7091220525261943304}
+  - component: {fileID: -6065722436699064558}
   m_Layer: 0
-  m_Name: Grid_Unpainted
+  m_Name: Reactor_Damaged
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2966539607108495261}
-  m_Mesh: {fileID: 9127120572191758296, guid: fd74e1d313e54cc42ac939cb3e96c912, type: 3}
+  m_Mesh: {fileID: 5041565236075717657, guid: fd74e1d313e54cc42ac939cb3e96c912, type: 3}
 --- !u!23 &8461391587969626492
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 009b4e9eab6c1214f9b23d563c9f75f7, type: 2}
-  - {fileID: 2100000, guid: a65df5a200fdb6d4bb13a957af6727dc, type: 2}
+  - {fileID: 2100000, guid: b4c125d288f5e4c44b025057de6eba95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,7 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-8531711369285338740
+--- !u!114 &-7091220525261943304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neededTool: 0
   isSmall: 0
---- !u!114 &4888281515266505457
+--- !u!114 &-6065722436699064558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
