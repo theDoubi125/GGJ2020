@@ -94,5 +94,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toolType: 2
-  droppedVersionPrefab: {fileID: 9054701661330156356, guid: 7fe984c3ed2ac0e49aad8f0bed67443e,
+  droppedVersionPrefab: {fileID: 9054701661330156356, guid: 82c7e44aaebb2fe40a85a37d23baba1a,
     type: 3}

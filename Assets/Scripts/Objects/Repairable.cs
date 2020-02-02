@@ -15,11 +15,11 @@ public class Repairable : MonoBehaviour
 
     public RepairState currentState;
     private Transform spawnedVersion;
+    public Transform repairFXPrefab;
 
     public void Start()
     {
         SpawnVersion(currentState);
-
     }
 
     public void OnDestroy()
@@ -66,12 +66,14 @@ public class Repairable : MonoBehaviour
                 if(currentState == RepairState.Twisted)
                 {
                     SpawnVersion(RepairState.Repaired);
+                    Instantiate(repairFXPrefab, transform.position, Quaternion.identity);
                 }
                 break;
             case Tool.ToolType.BlowPipe:
                 if(currentState == RepairState.Damaged)
                 {
                     SpawnVersion(RepairState.Repaired);
+                    Instantiate(repairFXPrefab, transform.position, Quaternion.identity);
                 }
                 break;
         }

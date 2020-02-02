@@ -17,7 +17,6 @@ public class Hand : MonoBehaviour
 
     void Update()
     {
-        RaycastHit raycastHit;
         Interactable hoveredInteractable = null;
         if(smallInteractableInRange != null)
         {
@@ -25,14 +24,21 @@ public class Hand : MonoBehaviour
         }
         else
         {
+            bool foundInteractable = false;
             foreach(Transform raycastSource in raycastSources)
             {
-                if(Physics.Raycast(raycastSource.position, raycastSource.forward, out raycastHit, grabRange, grabLayerMask))
+
+                foreach(RaycastHit hit in Physics.RaycastAll(raycastSource.position, raycastSource.forward, grabRange, grabLayerMask))
                 {
-                    hoveredInteractable = raycastHit.collider.GetComponent<Interactable>();
-                    if(hoveredInteractable != null)
+                    hoveredInteractable = hit.collider.GetComponent<Interactable>();
+                    if(hoveredInteractable != null && (grabbedObject == null || hoveredInteractable.transform != grabbedObject.transform))
+                    {
+                        foundInteractable = true;
                         break;
+                    }
                 }
+                if(foundInteractable)
+                    break;
             }
         }
 
@@ -44,11 +50,8 @@ public class Hand : MonoBehaviour
                 {
                     objectInRange.SetHilight(false);
                 }
-                else
-                {
-                    objectInRange = hoveredInteractable;
-                    objectInRange.SetHilight(true);
-                }
+                objectInRange = hoveredInteractable;
+                objectInRange.SetHilight(true);
             }
         }
         else if(objectInRange != null)
