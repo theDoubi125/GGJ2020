@@ -24,6 +24,7 @@ public class GrabWeight : MonoBehaviour
         massController = hand.GetComponentInParent<MassController>();
         massController.SetMassConfig(massConfig);
         isWeightActive = true;
+        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ObjectPickUp);
     }
 
     private void OnReleased()
@@ -31,6 +32,7 @@ public class GrabWeight : MonoBehaviour
         massController = grabbingHand.GetComponentInParent<MassController>();
         massController.SetMassConfig(massController.defaultConfig);
         isWeightActive = false;
+        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ObjectFallsHeavy);
     }
     private void OnDestroy()
     {
