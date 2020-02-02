@@ -28,6 +28,7 @@ public class SoundManagerScript : MonoBehaviour
         ShipConnectPiece,
         ShipCrashDoor,
         ShipLeaving,
+        ShipDriveBy,
         ShipWarning, // Multiple
         ToolBlowtorch,
         ToolGet
@@ -83,6 +84,7 @@ public class SoundManagerScript : MonoBehaviour
     public AudioClip shipLeaving;
     public AudioClip shipCrashDoor;
     public List<AudioClip> shipWarning;
+    public List<AudioClip> shipDriveBy;
 
     [Header("Tool")]
     public AudioClip toolBlowtorch;
@@ -195,6 +197,9 @@ public class SoundManagerScript : MonoBehaviour
                 break;
             case AudioClips.ShipWarning:
                 clip = shipWarning[Random.Range(0, shipWarning.Count)];
+                break;
+            case AudioClips.ShipDriveBy:
+                clip = shipDriveBy[Random.Range(0, shipDriveBy.Count)];
                 break;
             case AudioClips.ToolBlowtorch:
                 clip = toolBlowtorch;

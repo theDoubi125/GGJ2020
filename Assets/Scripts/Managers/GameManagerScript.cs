@@ -52,6 +52,9 @@ public class GameManagerScript : MonoBehaviour
     private Ship currentShipScript;
 
     private bool shipWarningPlayed = false;
+    private float minDelayBetweenDriveBy = 1.0f;
+    private float maxDelayBetweenDriveBy = 5.0f;
+    private float driveByTimer;
 
 
     // Start is called before the first frame update
@@ -69,13 +72,22 @@ public class GameManagerScript : MonoBehaviour
         currentStopCount = 0;
         waitTimer = 0.0f;
         currentState = GameState.Waiting;
+
         textUI.text = "PREPARE THE PIT FOR THE NEXT STOP !";
-  
+        driveByTimer = Random.Range(minDelayBetweenDriveBy, maxDelayBetweenDriveBy);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        driveByTimer -= Time.deltaTime;
+        if(driveByTimer <= 0.0f)
+        {
+            driveByTimer = Random.Range(minDelayBetweenDriveBy, maxDelayBetweenDriveBy);
+            //SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipDriveBy);
+        }
+
         switch (currentState)
         {
             case GameState.Waiting:
@@ -166,7 +178,7 @@ public class GameManagerScript : MonoBehaviour
 
         repairTimer = 0.0f;
 
-        //SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipArriving);
+        SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ShipArriving);
 
         currentShip = Instantiate(prefabSpaceship, shipSpawnPos.position, Quaternion.Euler(-90,180,-90));
         var children = currentShip.GetComponentsInChildren<Repairable>();
@@ -269,7 +281,7 @@ public class GameManagerScript : MonoBehaviour
         brokenPartText.text = "";
 
         totalRunTime += repairTimer;
-
+        driveByTimer = Random.Range(minDelayBetweenDriveBy, maxDelayBetweenDriveBy);
     }
 
     void FormatTime(float value)
