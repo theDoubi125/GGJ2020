@@ -42,7 +42,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1115551098817632317, guid: 88bc6217e9838ec4f96195cba31285a0, type: 3}
+  m_Mesh: {fileID: 1115551098817632317, guid: fd74e1d313e54cc42ac939cb3e96c912, type: 3}
 --- !u!114 &-8916852427329337084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +55,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27dbcd2412bdf14494053efef0a551a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8900886401144679352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222933589987159901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c460e8aece47e42be2078ac3a321f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  massConfig: {fileID: 11400000, guid: be34e39bedb995f47b0f825f7e9d006a, type: 2}
 --- !u!114 &-7430532171009659373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +141,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1115551098817632317, guid: 88bc6217e9838ec4f96195cba31285a0,
+      objectReference: {fileID: 1115551098817632317, guid: fd74e1d313e54cc42ac939cb3e96c912,
         type: 3}
     - target: {fileID: 5492198415176339847, guid: 2f0e61fea92f9384781636e069f4b5c2,
         type: 3}

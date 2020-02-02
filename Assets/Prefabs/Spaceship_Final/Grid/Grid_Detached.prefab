@@ -61,7 +61,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 9127120572191758296, guid: 88bc6217e9838ec4f96195cba31285a0, type: 3}
+  m_Mesh: {fileID: 9127120572191758296, guid: fd74e1d313e54cc42ac939cb3e96c912, type: 3}
 --- !u!114 &-2899678433980110212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
   damagedPrefab: {fileID: 4884608065845610575, guid: 5437eb3155683d443a53fe6d550d30d1,
     type: 3}
   currentState: 1
-  repairFXPrefab: {fileID: 0}
+  repairFXPrefab: {fileID: 400004, guid: a92a42a2125977345a54e9b8306b5880, type: 3}
 --- !u!54 &2664828464746481007
 Rigidbody:
   m_ObjectHideFlags: 0

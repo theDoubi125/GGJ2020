@@ -114,7 +114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983763829}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.4}
+  m_LocalPosition: {x: 0, y: 0, z: 0.265}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 390017378}
@@ -553,6 +553,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot
       objectReference: {fileID: 0}
+    - target: {fileID: 647421945978904700, guid: 76d08037f39ad7f4792e96778fa815aa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13ffc073001a88c4593d8dafe7aff69e, type: 2}
     - target: {fileID: 1414637679925932748, guid: 76d08037f39ad7f4792e96778fa815aa,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -673,6 +678,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 4169922768501288490, guid: 76d08037f39ad7f4792e96778fa815aa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13ffc073001a88c4593d8dafe7aff69e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76d08037f39ad7f4792e96778fa815aa, type: 3}
 --- !u!4 &6006994436445299359 stripped
