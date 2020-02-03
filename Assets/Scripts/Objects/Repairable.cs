@@ -26,7 +26,12 @@ public class Repairable : MonoBehaviour
     {
         if(spawnedVersion != null)
         {
-            GetComponent<Interactable>().hilightChangedDelegate -= spawnedVersion.GetComponentInChildren<HilightMaterialSwitcher>().OnHilightChanged;
+            HilightMaterialSwitcher hmatSwitcher = spawnedVersion.GetComponentInChildren<HilightMaterialSwitcher>();
+            HilightAllMaterialsSwitcher hmatAllSwitcher = spawnedVersion.GetComponentInChildren<HilightAllMaterialsSwitcher>();
+            if(hmatSwitcher != null)
+                GetComponent<Interactable>().hilightChangedDelegate += hmatSwitcher.OnHilightChanged;
+            if(hmatAllSwitcher != null)
+                GetComponent<Interactable>().hilightChangedDelegate += hmatAllSwitcher.OnHilightChanged;
         }
 
     }
@@ -36,7 +41,12 @@ public class Repairable : MonoBehaviour
         currentState = newState;
         if(spawnedVersion != null)
         {
-            GetComponent<Interactable>().hilightChangedDelegate -= spawnedVersion.GetComponentInChildren<HilightMaterialSwitcher>().OnHilightChanged;
+            HilightMaterialSwitcher hmatSwitcher = spawnedVersion.GetComponentInChildren<HilightMaterialSwitcher>();
+            HilightAllMaterialsSwitcher hmatAllSwitcher = spawnedVersion.GetComponentInChildren<HilightAllMaterialsSwitcher>();
+            if(hmatSwitcher != null)
+                GetComponent<Interactable>().hilightChangedDelegate -= hmatSwitcher.OnHilightChanged;
+            if(hmatAllSwitcher != null)
+                GetComponent<Interactable>().hilightChangedDelegate -= hmatAllSwitcher.OnHilightChanged;
             Destroy(spawnedVersion.gameObject);
         }
         switch(newState)
@@ -54,7 +64,15 @@ public class Repairable : MonoBehaviour
                 spawnedVersion = Instantiate(damagedPrefab, transform);
                 break;
         }
-        GetComponent<Interactable>().hilightChangedDelegate += spawnedVersion.GetComponentInChildren<HilightMaterialSwitcher>().OnHilightChanged;
+        {
+
+            HilightMaterialSwitcher hmatSwitcher = spawnedVersion.GetComponentInChildren<HilightMaterialSwitcher>();
+            HilightAllMaterialsSwitcher hmatAllSwitcher = spawnedVersion.GetComponentInChildren<HilightAllMaterialsSwitcher>();
+            if(hmatSwitcher != null)
+                GetComponent<Interactable>().hilightChangedDelegate += hmatSwitcher.OnHilightChanged;
+            if(hmatAllSwitcher != null)
+                GetComponent<Interactable>().hilightChangedDelegate += hmatAllSwitcher.OnHilightChanged;
+        }
 
     }
 

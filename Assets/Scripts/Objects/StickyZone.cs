@@ -10,6 +10,7 @@ public class StickyZone : MonoBehaviour
         if(stickable != null && !other.isTrigger)
         {
             stickable.SetSticked(this);
+            SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ObjectPutWorkbench);
         }
     }
 }
