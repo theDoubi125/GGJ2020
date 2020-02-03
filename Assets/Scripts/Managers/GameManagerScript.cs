@@ -86,9 +86,14 @@ public class GameManagerScript : MonoBehaviour
 
     string FormatTimeString(float timeValue)
     {
-        string seconds = (timeValue % 60).ToString("00");
+        string minutes = Mathf.Floor(timeValue / 60).ToString("00");
+        string seconds = Mathf.RoundToInt(timeValue % 60).ToString("00");
+        if(seconds.Equals("60"))
+        {
+            seconds = "59";
+        }
         string milliseconds = ((timeValue % 1) * 1000).ToString("000");
-        return string.Format("{0}\"{1}", seconds, milliseconds);
+        return string.Format("{0}'{1}\"{2}", minutes, seconds, milliseconds);
     }
 
     // Update is called once per frame

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657743, g: 0.49641144, b: 0.57481515, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465776, g: 0.49641222, b: 0.5748158, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2588,6 +2588,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1252466286616585235, guid: 9afe51074f7b9ed47b35de8b4a598d40,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -25
+      objectReference: {fileID: 0}
     - target: {fileID: 2987884896279037776, guid: 9afe51074f7b9ed47b35de8b4a598d40,
         type: 3}
       propertyPath: m_Name
@@ -2697,6 +2702,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987884896888817653, guid: 9afe51074f7b9ed47b35de8b4a598d40,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987884896910510097, guid: 9afe51074f7b9ed47b35de8b4a598d40,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987884897297180565, guid: 9afe51074f7b9ed47b35de8b4a598d40,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987884897854917950, guid: 9afe51074f7b9ed47b35de8b4a598d40,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 4377194343675629352, guid: 9afe51074f7b9ed47b35de8b4a598d40,
         type: 3}
