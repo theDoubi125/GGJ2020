@@ -122,10 +122,22 @@ PrefabInstance:
       propertyPath: toRepair.Array.data[3]
       value: 
       objectReference: {fileID: 977416445945516388}
+    - target: {fileID: 2555272488420460307, guid: a29b8e53e390ea14ca993e1a0697dc02,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1115551098817632317, guid: fd74e1d313e54cc42ac939cb3e96c912,
+        type: 3}
+    - target: {fileID: 4077221543322861821, guid: a29b8e53e390ea14ca993e1a0697dc02,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1115551098817632317, guid: fd74e1d313e54cc42ac939cb3e96c912,
+        type: 3}
     - target: {fileID: 5115980409413086145, guid: a29b8e53e390ea14ca993e1a0697dc02,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6346731026423001638, guid: a29b8e53e390ea14ca993e1a0697dc02,
         type: 3}
@@ -185,8 +197,14 @@ PrefabInstance:
     - target: {fileID: 8166111319378116668, guid: a29b8e53e390ea14ca993e1a0697dc02,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8201614207594842397, guid: a29b8e53e390ea14ca993e1a0697dc02,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1115551098817632317, guid: fd74e1d313e54cc42ac939cb3e96c912,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a29b8e53e390ea14ca993e1a0697dc02, type: 3}
 --- !u!4 &8782295328322319142 stripped
