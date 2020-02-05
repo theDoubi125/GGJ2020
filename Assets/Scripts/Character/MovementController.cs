@@ -21,7 +21,7 @@ public class MovementController : MonoBehaviour
         this.transform.position = spawnPoint.position;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         input.x = Input.GetAxis("Horizontal" + playerIndex);
         input.y = Input.GetAxis("Vertical" + playerIndex);
