@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465776, g: 0.49641222, b: 0.5748158, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657743, g: 0.49641144, b: 0.57481515, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -194,7 +194,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 19.51
+  m_Intensity: 5
   m_Range: 25.88
   m_SpotAngle: 91
   m_InnerSpotAngle: 21.80208
@@ -300,6 +300,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.129
       objectReference: {fileID: 0}
+    - target: {fileID: 3971878964692588670, guid: eca5baaccfa9d0d45baf86e317cac50d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4036d7e0411fef74cb8e4d1a16b6205c, type: 2}
+    - target: {fileID: 5623482551773345522, guid: eca5baaccfa9d0d45baf86e317cac50d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 74a43351ee4d1ff47b51314eada360cc, type: 2}
     - target: {fileID: 6978454284447817985, guid: eca5baaccfa9d0d45baf86e317cac50d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -370,6 +380,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character2
       objectReference: {fileID: 0}
+    - target: {fileID: 8368722353536021469, guid: eca5baaccfa9d0d45baf86e317cac50d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 74a43351ee4d1ff47b51314eada360cc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eca5baaccfa9d0d45baf86e317cac50d, type: 3}
 --- !u!1 &109528861
@@ -1425,7 +1440,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15802
+  m_Name: pb_Mesh15838
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3702,7 +3717,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072262388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.3, y: 0, z: 12.85}
+  m_LocalPosition: {x: -1.73, y: 2.2, z: 8.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 750193423}
@@ -3910,6 +3925,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CUBE
       objectReference: {fileID: 0}
+    - target: {fileID: 3549757353378418640, guid: 724d6d8ebd142f64bb8ec08d886e1b8a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 74a43351ee4d1ff47b51314eada360cc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 724d6d8ebd142f64bb8ec08d886e1b8a, type: 3}
 --- !u!1001 &1186235631
@@ -3973,21 +3993,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628904633723681274, guid: fac9a9d783b41f54b8b02aa1084f8202,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628904633723681274, guid: fac9a9d783b41f54b8b02aa1084f8202,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628904633723681274, guid: fac9a9d783b41f54b8b02aa1084f8202,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8666820313397365737, guid: fac9a9d783b41f54b8b02aa1084f8202,
         type: 3}
@@ -4267,6 +4272,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6457600390764144932, guid: ff98ae2583e3c7a46b676b1b11500c1c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6619823397525167881, guid: ff98ae2583e3c7a46b676b1b11500c1c,
         type: 3}
       propertyPath: m_Name
@@ -6041,7 +6051,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15998
+  m_Name: pb_Mesh16068
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7114,7 +7124,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8490566, g: 0.8290317, b: 0.8290317, a: 1}
-  m_Intensity: 19.51
+  m_Intensity: 5
   m_Range: 25.88
   m_SpotAngle: 91
   m_InnerSpotAngle: 21.80208
@@ -7170,6 +7180,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3971878964692588670, guid: eca5baaccfa9d0d45baf86e317cac50d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 25b9b8763105d004e8e6fecb666d69e8, type: 2}
+    - target: {fileID: 5623482551773345522, guid: eca5baaccfa9d0d45baf86e317cac50d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d1283282a978ac48bdbbc9e0572d3c3, type: 2}
     - target: {fileID: 6978454284447817985, guid: eca5baaccfa9d0d45baf86e317cac50d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7235,6 +7255,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character1
       objectReference: {fileID: 0}
+    - target: {fileID: 8368722353536021469, guid: eca5baaccfa9d0d45baf86e317cac50d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d1283282a978ac48bdbbc9e0572d3c3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eca5baaccfa9d0d45baf86e317cac50d, type: 3}
 --- !u!1001 &8200124454608278007
