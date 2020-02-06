@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3148470829749940026}
   - component: {fileID: 8461391587969626492}
   - component: {fileID: 5239339785453809659}
+  - component: {fileID: -7255511291167589540}
   m_Layer: 0
   m_Name: Reactor_Twisted
   m_TagString: Untagged
@@ -95,3 +96,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neededTool: 0
   isSmall: 0
+--- !u!114 &-7255511291167589540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2966539607108495261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abbf3a83b88bc34398aebab5207d1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hilightedMaterial: {fileID: 2100000, guid: 4de9e923393b3df45942ad314b91e94e, type: 2}
+  materialIndex: 1
+  renderer: {fileID: 0}

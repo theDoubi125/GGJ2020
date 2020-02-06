@@ -31,7 +31,7 @@ public class MainMenuScript : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         SoundManagerScript.instance.StartPlaySounds();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Scenes/GameScene");
 
     }
 

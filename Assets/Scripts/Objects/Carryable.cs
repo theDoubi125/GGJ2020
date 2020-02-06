@@ -16,6 +16,8 @@ public class Carryable : MonoBehaviour
     private float carryAnimationTime = 0;
     private FixedJoint fixedJoint;
     private Rigidbody body;
+    private float wakeupDuration = 1;
+    private float wakeupTime = 0;
 
     void Start()
     {
@@ -38,7 +40,7 @@ public class Carryable : MonoBehaviour
     {
         Destroy(fixedJoint);
         grabAnimationOffset = transform.position - attachedHand.transform.position;
-        body.WakeUp();
+        wakeupTime = 0;
     }
 
     private void OnReleased()
@@ -48,11 +50,15 @@ public class Carryable : MonoBehaviour
 
     private void Update()
     {
-
+        wakeupTime += Time.deltaTime;
+        if(body.IsSleeping() && wakeupTime < wakeupDuration)
+        {
+            body.WakeUp();
+        }
         if(inGrabAnimation)
         {
             carryAnimationTime += Time.deltaTime;
-            transform.position = attachedHand.transform.position + grabAnimationOffset + Vector3.up * carryHeight * carryAnimationTime / carryAnimationDuration;
+            transform.position = attachedHand.transform.position + grabAnimationOffset + (-grabAnimationOffset + Vector3.up * carryHeight) * carryAnimationTime / carryAnimationDuration;
             if(carryAnimationTime > carryAnimationDuration)
             {
                 inGrabAnimation = false;
