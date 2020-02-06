@@ -101,9 +101,10 @@ public class Repairable : MonoBehaviour
 
     public void Repaint()
     {
-        Instantiate(repairFXPrefab, transform.position, Quaternion.identity);
+        
         if(currentState == RepairState.Unpainted)
         {
+            Instantiate(repairFXPrefab, transform.position, Quaternion.identity);
             SpawnVersion(RepairState.Repaired);
             SoundManagerScript.instance.PlayOneShotSound(SoundManagerScript.AudioClips.ObjectPutColor);
         }
